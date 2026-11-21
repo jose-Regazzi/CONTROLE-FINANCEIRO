@@ -189,12 +189,20 @@ body.dark .gcard.on{background:var(--y);border-color:var(--y)}body.dark .gcard.o
 .repopts{display:flex;flex-wrap:wrap;gap:6px}
 .repo{border:1px solid var(--line);background:var(--card);font:inherit;font-size:12.5px;font-weight:700;padding:7px 12px;border-radius:10px;cursor:pointer}
 .repo:hover{border-color:var(--blue);color:var(--blue)}.repo.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.catbars{display:grid;gap:7px;margin-top:4px}
+.cbar{display:grid;grid-template-columns:minmax(0,150px) minmax(0,1fr) 92px 34px;gap:8px;align-items:center;font-size:12px}
+.cb-n{display:flex;align-items:center;gap:6px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-transform:uppercase;font-size:11.5px}
+.cb-n i{font-style:normal;font-size:14px;width:18px;text-align:center;flex:none}
+.cb-b{height:12px;background:var(--card2);border-radius:6px;overflow:hidden}.cb-b i{display:block;height:100%;background:linear-gradient(90deg,var(--y),var(--yd));border-radius:6px}
+.cbar b{text-align:right;font-weight:800}.cbar small{text-align:right;color:var(--tx3);font-size:10.5px}
+.cbar.none .cb-n{color:var(--tx3)}.cbar.none .cb-b i{background:var(--line)}
+@media(max-width:700px){.cbar{grid-template-columns:minmax(0,110px) minmax(0,1fr) 80px 30px}}
 .catw{display:flex;align-items:center;min-width:0}
 .catbtn{display:inline-flex;align-items:center;gap:5px;max-width:100%;min-width:0;border:1px dashed var(--line);background:transparent;border-radius:8px;padding:3px 8px;font:inherit;font-size:11px;font-weight:700;color:var(--tx3);cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-transform:uppercase}
 .catbtn i{font-style:normal;font-size:13px;line-height:1}
 .catbtn.on{border-style:solid;border-color:var(--line);background:var(--card2);color:var(--tx)}
 .catbtn:hover{border-color:var(--yd)}
-.catbtn.sm{margin-left:8px;flex:none;max-width:170px}.catbtn.sm:not(.on){display:none}.item:hover .catbtn.sm{display:inline-flex}
+.catbtn.sm{margin-left:8px;flex:0 1 auto;min-width:34px;max-width:170px}.catbtn.sm:not(.on){display:none}.item:hover .catbtn.sm{display:inline-flex}
 .catpop{display:none;position:fixed;z-index:200;width:260px;max-height:360px;background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:0 16px 40px rgba(0,0,0,.18);padding:8px;flex-direction:column}
 .catpop input{width:100%;box-sizing:border-box;border:1px solid var(--line);border-radius:9px;padding:7px 10px;font:inherit;font-size:13px;background:var(--card2);color:var(--tx);margin-bottom:6px}
 #cpL{max-height:250px;overflow:auto;display:grid;gap:2px}
@@ -246,7 +254,7 @@ body.dark .ein.ed{color:var(--y)}
 .mini{border:1px solid var(--line);background:var(--ytint);color:var(--y3);font:inherit;font-size:11px;font-weight:800;padding:4px 9px;border-radius:8px;cursor:pointer;margin-left:8px}
 .mini:hover{border-color:var(--yd)}
 .item .nm{display:flex;align-items:center;gap:6px;min-width:0}
-.nin{flex:1;min-width:0;background:transparent;border:1px solid transparent;color:var(--tx);font:inherit;font-weight:600;padding:5px 7px;border-radius:8px;outline:none;text-transform:uppercase;margin-left:-7px}
+.nin{flex:0 0 auto;width:auto;min-width:60px;max-width:60%;field-sizing:content;background:transparent;border:1px solid transparent;color:var(--tx);font:inherit;font-weight:600;padding:5px 7px;border-radius:8px;outline:none;text-transform:uppercase;margin-left:-7px}
 .item:hover .nin{border-color:var(--line);background:var(--card)}
 .nin:focus{border-color:var(--yd)!important;background:var(--card)!important;box-shadow:0 0 0 3px var(--ytint)}
 .nin.ed{color:var(--y3)}
@@ -589,7 +597,7 @@ body.locked .more{display:none}
   <div class="top">
     <div class="brand">
       <div class="logo">R$</div>
-      <div class="bt"><h1>Controle Financeiro <small class="ver" title="Versão do app">v36</small></h1><p id="srcInfo">Previsto × Realizado</p></div>
+      <div class="bt"><h1>Controle Financeiro <small class="ver" title="Versão do app">v37</small></h1><p id="srcInfo">Previsto × Realizado</p></div>
     </div>
   <div class="monthbar" id="mbar">
     <button class="navbtn" id="prev">‹</button>
@@ -647,6 +655,8 @@ body.locked .more{display:none}
     <div class="card">
       <h3>🧭 Composição das despesas <span class="pill" id="compMode">realizado</span></h3>
       <div class="donut-wrap"><svg id="donut" width="170" height="170" viewBox="0 0 170 170"></svg><div class="legend" id="legend"></div></div>
+      <h3 style="margin-top:18px">🏷️ Custos por categoria <span class="pill" id="catMode"></span></h3>
+      <div class="catbars" id="catBars"></div>
       <h3 style="margin-top:18px">💳 Cartões do mês <button class="mini" id="txCfg" style="margin-left:auto" title="Cadastrar, renomear, apagar e configurar cartões">⚙ Configurar cartões</button></h3>
       <div class="ctiles" id="cardTabs"></div>
       <h3 style="margin-top:12px">Lançamentos <span class="pill" id="txCount"></span></h3>
@@ -1332,7 +1342,7 @@ function renderDetail(){
       const name = it.auto ? `<span class="autonm">${esc(nm)}</span><span class="autotag" title="Soma automática dos lançamentos marcados para repor nas faturas deste mês">↺ ${it.auto} lanç. das faturas</span>`
         : isCard && !it.added
         ? `<span class="link" data-card="${esc(nm)}">${sec?'':'💳 '}${esc(nm)} <span class="go">fatura ›</span></span>`
-        : `<input class="nin ${it.ren?'ed':''}" data-key="${esc(it.key)}" value="${esc(nm)}" placeholder="${isCard?'Nome do cartão':'Descrição do item'}" title="${it.ren?'Renomeado (planilha: '+esc(it.on)+')':'Clique para renomear'}">${isCard&&nm?`<span class="link" data-card="${esc(nm)}"><span class="go">fatura ›</span></span>`:''}`;
+        : `<input class="nin ${it.ren?'ed':''}" size="${Math.max(8,Math.min(48,Math.ceil(nm.length*1.35)+1))}" data-key="${esc(it.key)}" value="${esc(nm)}" placeholder="${isCard?'Nome do cartão':'Descrição do item'}" title="${it.ren?'Renomeado (planilha: '+esc(it.on)+')':'Clique para renomear'}">${isCard&&nm?`<span class="link" data-card="${esc(nm)}"><span class="go">fatura ›</span></span>`:''}`;
       const pcell = (sec && !isCard) ? `<input class="pcin ${it.ed_p?'ed':''}" data-key="${esc(it.key)}" value="${esc(it.p||'')}" placeholder="parc." title="Parcela atual/total (ex.: 5/60). Os meses seguintes são ajustados e o item encerra na última parcela.">` : '';
       return `<div class="item ${sec?'rowc':''}" data-oid="${esc(oid(it))}"><span class="nm">${sec?'<span class="grip" title="Arraste para reordenar">⋮⋮</span>':''}<button class="rm" data-key="${esc(it.key)}" title="Remover linha">−</button>${name}${(sec&&!isCard&&!it.auto)?`<button class="catbtn sm ${it.cat?'on':''}" data-ck="${esc(it.key)}" title="Categoria">${it.cat?`<i>${catIcon(it.cat)}</i>${esc(it.cat)}`:'＋ cat.'}</button>`:''}${pcell}${it.note?` <small style="color:var(--tx3)">· ${esc(it.note)}</small>`:''}</span>
       ${it.auto?`<span class="ce autov num" title="Calculado: soma dos lançamentos marcados para repor">${fmt(it.e)}</span>`:einp(it,'e','ce')}${einp(it,'f','c3 cf')}<span class="stc">${dueChip(it,m)||status(it)}<button class="duebtn" data-key="${esc(it.key)}" title="Vencimento e data de pagamento">📅</button></span></div>`;}).join('')+ addBtn +
@@ -1850,6 +1860,13 @@ function renderDonut(){
   if(tot>0) parts.forEach(([n,v,c])=>{ const L=v/tot*C; svg+=`<circle cx="85" cy="85" r="${R}" fill="none" stroke="${c}" stroke-width="20" stroke-dasharray="${Math.max(L-2,0)} ${C}" stroke-dashoffset="${-off}" transform="rotate(-90 85 85)" stroke-linecap="butt"/>`; off+=L; });
   svg+=`<text x="85" y="80" text-anchor="middle" style="fill:var(--tx3);font-size:11px">total</text><text x="85" y="99" text-anchor="middle" style="fill:var(--tx);font-size:15px;font-weight:800">${fmtK(tot)}</text>`;
   $('donut').innerHTML=svg;
+  { const m=DATA[cur], G={}; const add=(c,v)=>{ if(!v) return; const k=String(c||'').trim().toUpperCase(); G[k]=(G[k]||0)+v; };
+    for(const sec of ['fixas','variaveis']) for(const it of m.sec[sec]) add(it.cat, mode==='f'?n0(it.f):n0(it.e));
+    for(const t of m.tx) add(t.cat, n0(t.v));
+    const L=Object.entries(G).filter(([k,v])=>v>0).sort((a,b)=>(a[0]===''?1:0)-(b[0]===''?1:0)||b[1]-a[1]), T=L.reduce((s,x)=>s+x[1],0), mx=Math.max(1,...L.filter(x=>x[0]).map(x=>x[1]),...L.map(x=>x[1]));
+    $('catMode').textContent=(mode==='f'?'realizado':'previsto')+' + faturas';
+    $('catBars').innerHTML=L.length?L.map(([k,v])=>`<div class="cbar ${k?'':'none'}"><span class="cb-n">${k?`<i>${catIcon(k)}</i>${esc(k)}`:'<i>·</i>Sem categoria'}</span><span class="cb-b"><i style="width:${(v/mx*100).toFixed(1)}%"></i></span><b class="num">${fmt(v)}</b><small>${T?(v/T*100).toFixed(0):0}%</small></div>`).join('')
+      :'<div class="empty">Sem despesas no mês</div>'; }
   $('legend').innerHTML=parts.map(([n,v,c])=>`<div class="lg"><i style="background:${c}"></i><span>${n}</span><b class="num">${fmt(v)}</b><small style="color:var(--tx3);width:38px;text-align:right">${tot?(v/tot*100).toFixed(0):0}%</small></div>`).join('');
 }
 
