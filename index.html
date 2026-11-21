@@ -15,7 +15,7 @@
 :root{
   --bg:#f4f3ee; --card:#ffffff; --card2:#f6f5f0; --line:rgba(17,17,17,.08);
   --tx:#111111; --tx2:#4a4842; --tx3:#9b978b; --shadow:0 1px 2px rgba(17,17,17,.04),0 8px 24px rgba(17,17,17,.06);
-  --y:#facc15; --yd:#ca8a04; --y3:#a16207; --k:#111111; --ink:#111111;
+  --blue:#2563eb; --pink:#db2777; --cyan:#0891b2; --amber:#d97706; --violet:#7c3aed; --y:#facc15; --yd:#ca8a04; --y3:#a16207; --k:#111111; --ink:#111111;
   --green:#15803d; --red:#dc2626; --ytint:rgba(250,204,21,.16);
 }
 body.dark{
@@ -169,6 +169,29 @@ body.dark .gcard.on{background:var(--y);border-color:var(--y)}body.dark .gcard.o
 .glabel{font-size:10.5px;font-weight:800;color:var(--tx3);text-transform:uppercase;letter-spacing:.8px;margin:-4px 0 6px}
 @media(max-width:1100px){.hcards{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:700px){.hc-row{font-size:10.5px;gap:4px}.hc-row>span{white-space:nowrap}.dchip{white-space:nowrap;font-size:10px;padding:1px 6px}.hc-row .pin:not(.on){display:none}.hcards{gap:8px}.hc{padding:11px 12px;border-radius:14px}.hc-v{font-size:18px}.hc-row .sain.sm{width:90px}.sechead small{display:none}}
+.seg-l{font-size:11px;font-weight:800;color:var(--tx3);text-transform:uppercase;letter-spacing:.5px}
+.seg{display:inline-flex;background:var(--card2);border:1px solid var(--line);border-radius:10px;padding:2px;gap:2px}
+.seg button{border:0;background:transparent;font:inherit;font-size:12px;font-weight:700;color:var(--tx2);padding:5px 11px;border-radius:8px;cursor:pointer}
+.seg button.on{background:#111;color:var(--y)}
+.fchips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:2px 0 10px}
+.fc-l{font-size:11px;font-weight:800;color:var(--tx3);text-transform:uppercase;letter-spacing:.5px;margin-right:2px}
+.fchip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:5px 9px;font:inherit;font-size:11.5px;font-weight:700;color:var(--tx2);cursor:pointer}
+.fchip b{color:var(--tx);font-weight:800}.fchip small{font-size:10px;background:var(--card2);border-radius:6px;padding:0 5px;color:var(--tx3)}
+.fchip:hover{border-color:var(--yd)}.fchip.on{background:#111;border-color:#111;color:var(--y)}.fchip.on b{color:#fff}.fchip.on small{background:#333;color:#ddd}
+.fchip.clr{background:var(--ytint);color:var(--y3)}
+.tgrp{display:flex;align-items:center;gap:10px;padding:8px 10px 4px;margin-top:6px;border-bottom:2px solid var(--y);font-size:12px}
+.tgrp b:first-child{font-weight:900;text-transform:uppercase;letter-spacing:.4px}.tgrp span{color:var(--tx3);font-size:11px}.tgrp b.num{margin-left:auto;font-weight:900}
+.catin{font-size:11.5px;text-transform:uppercase;color:var(--tx2)}.catin::placeholder{text-transform:none;color:var(--tx3);opacity:.55;font-style:normal}
+#fSort{max-width:200px}
+.repb{border:1px dashed var(--line);background:transparent;color:var(--tx3);font:inherit;font-size:11px;font-weight:700;border-radius:8px;padding:4px 6px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.repb:hover{border-color:var(--blue);color:var(--blue)}
+.repb.on{border-style:solid;border-color:var(--blue);background:rgba(37,99,235,.08);color:var(--blue)}
+.repopts{display:flex;flex-wrap:wrap;gap:6px}
+.repo{border:1px solid var(--line);background:var(--card);font:inherit;font-size:12.5px;font-weight:700;padding:7px 12px;border-radius:10px;cursor:pointer}
+.repo:hover{border-color:var(--blue);color:var(--blue)}.repo.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.autonm{font-weight:700;padding:0 6px}
+.autotag{font-size:10px;font-weight:800;color:var(--blue);background:rgba(37,99,235,.08);border-radius:6px;padding:1px 6px;white-space:nowrap}
+.autov{text-align:right;padding-right:12px;font-weight:700;color:var(--blue)}
 .donut-wrap{display:flex;gap:16px;align-items:center}
 .legend{display:grid;gap:8px;flex:1}
 .lg{display:flex;align-items:center;gap:8px;font-size:12.5px}
@@ -236,7 +259,7 @@ body.dark .link .go{background:var(--y);color:#111}
 .mk .fin{margin-top:4px;font-size:20px;font-weight:900;padding:4px 6px;text-align:left}
 .mtools{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
 .mtools .search{margin:0;flex:1;min-width:200px}
-.trow{display:grid;grid-template-columns:30px minmax(0,1fr) 84px 110px 110px 62px;gap:8px;align-items:center;padding:4px 8px;border-radius:10px}
+.trow{display:grid;grid-template-columns:30px minmax(0,1fr) 70px 130px 120px 100px 62px;gap:8px;align-items:center;padding:4px 8px;border-radius:10px}
 .trow:hover{background:var(--card2)}
 .trow.head{font-size:11px;color:var(--tx3);font-weight:800;text-transform:uppercase;letter-spacing:.6px;padding:8px}
 .trow .ein{text-align:left}
@@ -254,7 +277,7 @@ body.dark .trow.okrow{background:rgba(74,222,128,.1)}
 .tlist{max-height:52vh;overflow:auto;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:6px}
 .mfoot{display:flex;justify-content:space-between;align-items:center;margin-top:12px;gap:10px;flex-wrap:wrap}
 .mfoot .note{font-size:11.5px;color:var(--tx3)}
-@media(max-width:700px){.mk{grid-template-columns:1fr 1fr}.trow{grid-template-columns:28px minmax(0,1fr) 58px 80px 56px}.trow .who{display:none}}
+@media(max-width:700px){.mk{grid-template-columns:1fr 1fr}.trow{grid-template-columns:24px minmax(0,1fr) 38px 28px 66px 42px;gap:4px;padding:4px 4px}.trow .estb{display:none}.trow .repb{padding:4px 2px}.trow .who{display:none}.trow .repb .rl{display:none}.trow.head span:nth-child(5){font-size:0}}
 .form{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:14px}
 .form label{display:grid;gap:5px;font-size:11px;font-weight:800;color:var(--tx3);text-transform:uppercase;letter-spacing:.6px}
 .form label.full{grid-column:1/-1}
@@ -386,7 +409,7 @@ body.locked .pcin{pointer-events:none}
 .fbar select:focus{border-color:var(--yd)}
 .mini.cpy{color:var(--tx);background:var(--card)}
 body.locked #copyPrev{display:none}
-.mk2{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:-4px 0 14px}
+.mk2{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin:-4px 0 14px}
 .mk2 .dc{padding:10px 12px;display:grid;gap:2px;cursor:pointer;transition:.15s}
 .mk2 .dc:hover{border-color:var(--yd)}
 .mk2 .dc.on{border-color:#111;box-shadow:0 0 0 1.5px #111}
@@ -751,6 +774,17 @@ body.locked .more{display:none}
     <div class="mbody"><p id="askM" style="font-size:13px;color:var(--tx2);line-height:1.5;margin:0 0 14px;white-space:pre-line"></p><div id="askB" style="display:grid;gap:8px"></div></div>
   </div>
 </div>
+<div class="ov" id="ovRep" style="z-index:58">
+  <div class="modal" style="width:min(460px,100%)">
+    <div class="mhead"><div class="logo" style="width:40px;height:40px;font-size:18px">↺</div><div><h2>Repor lançamento</h2><p id="repT"></p></div><button class="close" data-close="ovRep">✕</button></div>
+    <div class="mbody">
+      <p style="font-size:12.5px;color:var(--tx2);margin:0 0 10px">Escolha o item de <b>Reposições</b> onde este valor vai somar. Todos os lançamentos com o mesmo nome somam juntos no mês.</p>
+      <div class="repopts" id="repOpts"></div>
+      <div style="display:flex;gap:8px;margin-top:12px"><input class="search" id="repNew" placeholder="Novo item de reposição (ex.: ESCRITÓRIO)" style="flex:1;margin:0"><button class="btn primary" id="repOk">Criar</button></div>
+      <button class="btn" id="repNone" style="margin-top:10px;width:100%;justify-content:center">Não repor este lançamento</button>
+    </div>
+  </div>
+</div>
 <div class="ov" id="ovConv" style="z-index:55">
   <div class="modal" style="width:min(480px,100%)">
     <div class="mhead"><div class="cardico"></div><div><h2>Parcelamento</h2><p id="cvT"></p></div><button class="close" data-close="ovConv">✕</button></div>
@@ -825,19 +859,19 @@ body.locked .more{display:none}
         <button class="btn primary" id="fPaid">✓ Marcar como paga</button>
       </div>
       <div class="fbar">
-        Ordenar <select id="fSort">
+        <input type="hidden" id="fFilt" value="all">
+        <span class="seg-l">Agrupar</span><div class="seg" id="fGrp"><button data-g="none">Lista</button><button data-g="tipo">Tipo</button><button data-g="cat">Categoria</button><button data-g="rep">Reposição</button></div>
+        <span class="seg-l">Ordenar</span><select id="fSort">
           <option value="prev">Previsões primeiro</option><option value="val">Maior valor</option><option value="desc">Descrição (A–Z)</option>
-          <option value="parc">Parceladas primeiro</option><option value="fim">Parcelas que terminam antes</option><option value="pend">Não conferidos primeiro</option><option value="who">Responsável</option>
-        </select>
-        Mostrar <select id="fFilt">
-          <option value="all">Todos</option><option value="est">Só previsões</option><option value="real">Só compras reais</option>
-          <option value="parc">Só parceladas</option><option value="recs">Só recorrentes</option><option value="vista">Só à vista</option><option value="pend">Não conferidos</option><option value="ok">Conferidos</option>
+          <option value="parc">Parceladas primeiro</option><option value="fim">Parcelas que terminam antes</option><option value="pend">Não conferidos primeiro</option><option value="who">Categoria</option>
         </select>
         <span style="flex:1"></span>
         <button class="btn" id="fCmp" title="Comparar esta fatura com outras (meses ou cartões)">⇄ Comparar faturas</button>
         <button class="btn" id="fCopy" title="Traz os lançamentos da fatura do mês anterior: parcelas avançam (as encerradas não entram) e compras à vista entram como PREVISÃO">⧉ Copiar fatura anterior</button>
       </div>
-      <div class="trow head"><span></span><span>Descrição</span><span style="text-align:center">Parcela</span><span class="who">Responsável</span><span style="text-align:right">Valor</span><span></span></div>
+      <div class="fchips" id="fChips"></div>
+      <datalist id="dlCat"></datalist>
+      <div class="trow head"><span></span><span>Descrição</span><span style="text-align:center">Parcela</span><span class="who">Categoria</span><span style="text-align:center">Repor</span><span style="text-align:right">Valor</span><span></span></div>
       <div class="tlist" id="fList"></div>
       <div class="mfoot">
         <span class="note">✎ Tudo editável · o <b>Previsto</b> do cartão acompanha o total da fatura · alterações salvas neste navegador</span>
@@ -904,7 +938,7 @@ function parseSheet(name, g){
     const s=sectionOf(L);
     if(s){ cur=s; if(s!=='skip'){ const t=m.secTot[s]||{e:null,f:null}; if(num(r[1])!=null)t.e=(t.e??0)+r[1]; if(num(r[2])!=null)t.f=(t.f??0)+r[2]; m.secTot[s]=t; } continue; }
     if(!cur||cur==='skip') continue;
-    if(cur==='cartoes' && typeof r[2]==='string'){ const fl=NAT?String(r[4]||''):''; m.tx.push({d:r[0],v:n0(r[1]),card:r[2],who:r[3]||'',ok:fl.includes('OK'),est:fl.includes('EST'),rec:fl.includes('REC')}); continue; }
+    if(cur==='cartoes' && typeof r[2]==='string'){ const fl=NAT?String(r[4]||''):''; m.tx.push({d:r[0],v:n0(r[1]),card:r[2],who:r[3]||'',cat:NAT&&r[13]?String(r[13]):'',rep:NAT&&r[14]?String(r[14]):'',ok:fl.includes('OK'),est:fl.includes('EST'),rec:fl.includes('REC')}); continue; }
     if(cur==='cartoes' && PEOPLE.includes(L)) continue;
     const e=num(r[1]), f=num(r[2]);
     const cnt=(m._c[cur+'|'+L]=(m._c[cur+'|'+L]||0)+1);
@@ -941,7 +975,7 @@ function parseSheet(name, g){
 function applyEdits(m){
   for(const [k,list] of Object.entries(TXED)){
     if(!k.startsWith(m.key+'|')) continue; const card=k.slice(m.key.length+1); if(!card) continue;
-    m.tx=m.tx.filter(t=>norm(t.card)!==card).concat(list.map(x=>({d:x.d,v:n0(x.v),who:x.who||'',card:x.card||card,ok:!!x.ok,est:!!x.est,rec:!!x.rec})));
+    m.tx=m.tx.filter(t=>norm(t.card)!==card).concat(list.map(x=>({d:x.d,v:n0(x.v),who:x.who||'',cat:x.cat||'',rep:x.rep||'',card:x.card||card,ok:!!x.ok,est:!!x.est,rec:!!x.rec})));
     m.txEdited=true;
   }
   for(const [k,ed] of Object.entries(EDITS)){
@@ -959,6 +993,13 @@ function applyEdits(m){
       for(const p of ['e','f']) if(p in ed){ it['o'+p]=it[p]; D[sec][p]+=n0(ed[p])-n0(it[p]); it[p]=ed[p]; it['ed'+p]=true; any=true; } }
   }
   for(const sec of Object.keys(m.sec)) m.sec[sec]=m.sec[sec].filter(x=>!x.gone);
+  { const RS={}; for(const t of m.tx){ const r=String(t.rep||'').trim(); if(!r) continue; const k=norm(r); RS[k]=RS[k]||{n:r.toUpperCase(),v:0,c:0}; RS[k].v+=n0(t.v); RS[k].c++; }
+    for(const [k,o] of Object.entries(RS)){ o.v=r2(o.v); let it=m.sec.reposicoes.find(x=>norm(x.n)===k);
+      if(it){ D.reposicoes.e+=o.v-n0(it.e); it.e=o.v; }
+      else { const key=`${m.key}|reposicoes|${k}|auto`, ed=EDITS[key]||{}; if(ed.del) continue;
+        it={n:o.n,e:o.v,f:ed.f??null,sec:'reposicoes',key,note:'',added:true,p:null,venc:ed.venc||null,pago:ed.pago||null,edf:'f' in ed};
+        m.sec.reposicoes.push(it); D.reposicoes.e+=o.v; D.reposicoes.f+=n0(it.f); }
+      it.auto=o.c; any=true; } }
   m.edited=any; if(!any) return m;
   const S=m.sum, bump=(k,p,v)=>{ if(Math.abs(v)<0.001) return; S[k]=S[k]||{e:null,f:null}; S[k][p]=n0(S[k][p])+v; };
   for(const p of ['e','f']){
@@ -1239,12 +1280,13 @@ function renderDetail(){
   $('detItems').innerHTML=`<div class="item head"><span>Item</span><span class="r">Previsto</span><span class="r c3">Realizado</span><span class="r">Status</span></div>`+
     list.map(it=>{
       const isCard=it.sec==='cartoes', nm=it.n.replace(/^💳 /,'');
-      const name = isCard && !it.added
+      const name = it.auto ? `<span class="autonm">${esc(nm)}</span><span class="autotag" title="Soma automática dos lançamentos marcados para repor nas faturas deste mês">↺ ${it.auto} lanç. das faturas</span>`
+        : isCard && !it.added
         ? `<span class="link" data-card="${esc(nm)}">${sec?'':'💳 '}${esc(nm)} <span class="go">fatura ›</span></span>`
         : `<input class="nin ${it.ren?'ed':''}" data-key="${esc(it.key)}" value="${esc(nm)}" placeholder="${isCard?'Nome do cartão':'Descrição do item'}" title="${it.ren?'Renomeado (planilha: '+esc(it.on)+')':'Clique para renomear'}">${isCard&&nm?`<span class="link" data-card="${esc(nm)}"><span class="go">fatura ›</span></span>`:''}`;
       const pcell = (sec && !isCard) ? `<input class="pcin ${it.ed_p?'ed':''}" data-key="${esc(it.key)}" value="${esc(it.p||'')}" placeholder="parc." title="Parcela atual/total (ex.: 5/60). Os meses seguintes são ajustados e o item encerra na última parcela.">` : '';
       return `<div class="item ${sec?'rowc':''}" data-oid="${esc(oid(it))}"><span class="nm">${sec?'<span class="grip" title="Arraste para reordenar">⋮⋮</span>':''}<button class="rm" data-key="${esc(it.key)}" title="Remover linha">−</button>${name}${pcell}${it.note?` <small style="color:var(--tx3)">· ${esc(it.note)}</small>`:''}</span>
-      ${einp(it,'e','ce')}${einp(it,'f','c3 cf')}<span class="stc">${dueChip(it,m)||status(it)}<button class="duebtn" data-key="${esc(it.key)}" title="Vencimento e data de pagamento">📅</button></span></div>`;}).join('')+ addBtn +
+      ${it.auto?`<span class="ce autov num" title="Calculado: soma dos lançamentos marcados para repor">${fmt(it.e)}</span>`:einp(it,'e','ce')}${einp(it,'f','c3 cf')}<span class="stc">${dueChip(it,m)||status(it)}<button class="duebtn" data-key="${esc(it.key)}" title="Vencimento e data de pagamento">📅</button></span></div>`;}).join('')+ addBtn +
     `<div class="item" style="font-weight:800;border-top:1px solid var(--line);border-radius:0;margin-top:4px"><span>Total</span><span class="r num">${fmt(te)}</span><span class="r num c3">${fmt(tf)}</span><span></span></div>`;
   bindLinks();
   if(sec){ $('addItem').onclick=()=>addRow(m,sec); makeSortable($('detItems'),sec); }
@@ -1285,7 +1327,7 @@ async function fixDupsFatura(){
 async function fixDupsAll(){
   const plan=[]; let tot=0;
   for(const m of DATA){ if(m.closed) continue; for(const c of [...new Set(m.tx.map(t=>t.card))]){ const cn=norm(c);
-    const list=m.tx.filter(t=>norm(t.card)===cn).map(t=>({d:t.d,v:t.v,who:t.who,card:t.card,ok:!!t.ok,est:!!t.est,rec:!!t.rec}));
+    const list=m.tx.filter(t=>norm(t.card)===cn).map(t=>({d:t.d,v:t.v,who:t.who,cat:t.cat||'',rep:t.rep||'',card:t.card,ok:!!t.ok,est:!!t.est,rec:!!t.rec}));
     const d=findDups(list); if(d.length){ plan.push({m,c,cn,list,d}); tot+=d.length; } } }
   if(!tot) return toast('✓ Nenhum duplicado encontrado nas faturas');
   const ok=await askChoice('Duplicados nas faturas',`${tot} lançamento(s) repetido(s) em ${plan.length} fatura(s):\n\n${plan.slice(0,10).map(p=>`• ${MES[p.m.m]}/${p.m.y} · ${p.c}: ${p.d.length}`).join('\n')}${plan.length>10?'\n• …':''}\n\nFica 1 de cada (o conferido, se houver). Meses fechados não são alterados.`,[{t:`🧹 Remover ${tot} duplicado(s)`,v:1,cls:'primary'}]);
@@ -1297,7 +1339,7 @@ async function fixDupsAll(){
 function forwardTx(card,fn){
   const cn=norm(card); let n=0; if(!cn) return 0;
   for(let k=1;cur+k<DATA.length;k++){ const d=DATA[cur+k]; if(d.closed) continue;
-    const list=d.tx.filter(x=>norm(x.card)===cn).map(x=>({d:x.d,v:x.v,who:x.who,card:x.card,ok:!!x.ok,est:!!x.est,rec:!!x.rec}));
+    const list=d.tx.filter(x=>norm(x.card)===cn).map(x=>({d:x.d,v:x.v,who:x.who,cat:x.cat||'',rep:x.rep||'',card:x.card,ok:!!x.ok,est:!!x.est,rec:!!x.rec}));
     const before=JSON.stringify(list), tb=list.reduce((s,x)=>s+n0(x.v),0);
     fn(list,k,d);
     if(JSON.stringify(list)!==before){ n++; TXED[d.key+'|'+cn]=list; bumpCard(d,card,r2(list.reduce((s,x)=>s+n0(x.v),0)-tb)); }
@@ -1310,13 +1352,13 @@ function convParcel(i,a,N,valMode,val){
   const t=FLIST[i], base=splitP(t.d).d, nb=norm(base);
   const per = valMode==='total' ? Math.floor(val/N*100)/100 : (val??t.v);
   t.d=joinP(base,`${a}/${N}`); t.v=per; delete t.rec; t.est=false; commitFatura();
-  const n=forwardTx(FC(),(list,k)=>{ dropBase(list,nb); if(a+k<=N) list.push({d:joinP(base,`${a+k}/${N}`),v:per,who:t.who,card:FC()}); });
+  const n=forwardTx(FC(),(list,k)=>{ dropBase(list,nb); if(a+k<=N) list.push({d:joinP(base,`${a+k}/${N}`),v:per,who:t.who,cat:t.cat||'',rep:t.rep||'',card:FC()}); });
   refreshAll(); renderFatura(true); toast(`✓ ${base}: parcela ${a}/${N}${n?` · ${n} fatura(s) seguinte(s) ajustada(s)`:''}`);
 }
 function convRec(i){
   const t=FLIST[i], base=splitP(t.d).d, nb=norm(base);
   t.d=base; t.rec=true; t.est=false; commitFatura();
-  const n=forwardTx(FC(),list=>{ dropBase(list,nb); list.push({d:base,v:t.v,who:t.who,card:FC(),rec:true}); });
+  const n=forwardTx(FC(),list=>{ dropBase(list,nb); list.push({d:base,v:t.v,who:t.who,cat:t.cat||'',rep:t.rep||'',card:FC(),rec:true}); });
   refreshAll(); renderFatura(true); toast(`🔁 ${base} agora é recorrente${n?` · incluída em ${n} fatura(s) seguinte(s)`:''}`);
 }
 function convSingle(i){
@@ -1327,7 +1369,7 @@ function convSingle(i){
 }
 function cancelFwd(i,quitar){
   const t=FLIST[i], sp=splitP(t.d), nb=norm(sp.d);
-  let extra=0; if(quitar && sp.p){ const [a,N]=sp.p.split('/').map(Number); extra=r2(n0(t.v)*(N-a)); if(extra>0) FLIST.push({d:`${sp.d} (QUITAÇÃO das parcelas ${a+1} a ${N})`,v:extra,who:t.who,card:FC()}); }
+  let extra=0; if(quitar && sp.p){ const [a,N]=sp.p.split('/').map(Number); extra=r2(n0(t.v)*(N-a)); if(extra>0) FLIST.push({d:`${sp.d} (QUITAÇÃO das parcelas ${a+1} a ${N})`,v:extra,who:t.who,cat:t.cat||'',rep:t.rep||'',card:FC()}); }
   if(t.rec) delete t.rec; commitFatura();
   const n=forwardTx(FC(),list=>dropBase(list,nb));
   refreshAll(); renderFatura(true);
@@ -1365,7 +1407,7 @@ function removeTxForward(card,t){
   const cn=norm(card), base=norm(splitP(t.d).d), p=splitP(t.d).p; const [a,N]=p?p.split('/').map(Number):[0,0];
   let n=0;
   for(let k=1;cur+k<DATA.length;k++){ const d=DATA[cur+k]; if(d.closed) continue;
-    const list=d.tx.filter(x=>norm(x.card)===cn).map(x=>({d:x.d,v:x.v,who:x.who,card:x.card,ok:!!x.ok,est:!!x.est,rec:!!x.rec}));
+    const list=d.tx.filter(x=>norm(x.card)===cn).map(x=>({d:x.d,v:x.v,who:x.who,cat:x.cat||'',rep:x.rep||'',card:x.card,ok:!!x.ok,est:!!x.est,rec:!!x.rec}));
     const before=list.reduce((s,x)=>s+n0(x.v),0);
     const keep=list.filter(x=>{ const sp=splitP(x.d); if(norm(sp.d)!==base) return true;
       if(p){ return !(sp.p===`${a+k}/${N}`); } return !!sp.p; });
@@ -1913,8 +1955,8 @@ function nativeGrid(m){
   for(const [k,h] of Object.entries(H)){
     put(r,0,h); r++;
     for(const it of m.sec[k]){ const n=String(it.n||'').replace(/^💳 /,''); if(!norm(n)&&it.e==null&&it.f==null) continue;
-      put(r,0,n||'(sem nome)'); put(r,1,it.e??null); put(r,2,it.f??null); if(it.note) put(r,3,it.note); if(it.p) put(r,4,it.p); if(it.venc) put(r,11,it.venc); if(it.pago) put(r,12,it.pago); r++; }
-    if(k==='cartoes') for(const t of m.tx){ put(r,0,t.d||'(sem descrição)'); put(r,1,n0(t.v)); put(r,2,t.card); put(r,3,t.who||null); const fl=[t.ok?'OK':'',t.est?'EST':'',t.rec?'REC':''].filter(Boolean).join('|'); if(fl) put(r,4,fl); r++; }
+      put(r,0,n||'(sem nome)'); put(r,1,it.auto?null:(it.e??null)); put(r,2,it.f??null); if(it.note) put(r,3,it.note); if(it.p) put(r,4,it.p); if(it.venc) put(r,11,it.venc); if(it.pago) put(r,12,it.pago); r++; }
+    if(k==='cartoes') for(const t of m.tx){ put(r,0,t.d||'(sem descrição)'); put(r,1,n0(t.v)); put(r,2,t.card); put(r,3,t.who||null); const fl=[t.ok?'OK':'',t.est?'EST':'',t.rec?'REC':''].filter(Boolean).join('|'); if(fl) put(r,4,fl); if(t.cat) put(r,13,t.cat); if(t.rep) put(r,14,t.rep); r++; }
   }
   put(0,5,'TOTAL'); let br=1;
   for(const b of m.bank){ if(!norm(b.n)) continue; put(br,5,b.n); put(br,6,b.v??null); br++; if(br>13) break; }
@@ -2012,7 +2054,7 @@ function splitP(t){ const s0=String(t||''); const m=s0.match(/^(.*?\S)\s*-?\s*(?
 function joinP(d,p){ return p ? `${d} - Parcela ${p}` : d; }
 function openFatura(card){
   const m=DATA[cur]; FCARD=card; FLAST=card; FMKEY=m.key;
-  FLIST=m.tx.filter(t=>norm(t.card)===norm(card)).map(t=>({d:t.d,v:t.v,who:t.who,card:t.card,ok:!!t.ok,est:!!t.est,rec:!!t.rec}));
+  FLIST=m.tx.filter(t=>norm(t.card)===norm(card)).map(t=>({d:t.d,v:t.v,who:t.who,cat:t.cat||'',rep:t.rep||'',card:t.card,ok:!!t.ok,est:!!t.est,rec:!!t.rec}));
   FBASE=fTotal(); $('fSearch').value=''; $('ov').classList.add('on'); document.body.style.overflow='hidden';
   renderFatura(true);
 }
@@ -2041,6 +2083,7 @@ function renderFatura(rows){
       <div class="card dc" data-f="recs"><small>🔁 Recorrentes</small><b class="num">${fmt(S(recL))}</b><span>${recL.length} assinatura(s) · ${fmt(S(recL)*12)}/ano</span>${bar(S(recL),'#0891b2')}</div>
       <div class="card dc" data-f="vista"><small>🛒 À vista (reais)</small><b class="num">${fmt(S(vis))}</b><span>${vis.length} item(ns)</span>${bar(S(vis),'var(--yd)')}</div>
       <div class="card dc" data-f="est"><small>◷ Previsões</small><b class="num">${fmt(S(est))}</b><span>${est.length} item(ns) ainda estimados</span>${bar(S(est),'#7c3aed')}</div>
+      <div class="card dc" data-f="rep"><small>↺ A repor</small><b class="num">${fmt(S(FLIST.filter(t=>t.rep)))}</b><span>${FLIST.filter(t=>t.rep).length} item(ns) · somam em Reposições</span>${bar(S(FLIST.filter(t=>t.rep)),'var(--blue)')}</div>
       <div class="card dc" data-f="ok"><small>✓ Conferidos</small><b class="num">${okL.length}/${FLIST.length}</b><span>${fmt(S(okL))} conferido(s)</span>${bar(S(okL),'var(--green)')}</div>`;
     $('fDash').querySelectorAll('.dc').forEach(c=>c.onclick=()=>{ $('fFilt').value = $('fFilt').value===c.dataset.f?'all':c.dataset.f; renderFatura(true); });
     $('fDash').querySelectorAll('.dc').forEach(c=>c.classList.toggle('on',$('fFilt').value===c.dataset.f));
@@ -2052,30 +2095,62 @@ function renderFatura(rows){
   $('fPrev').value=fmtIn(it?.e); $('fReal').value=fmtIn(it?.f);
   $('fPrev').disabled=$('fReal').disabled=$('fPaid').disabled=!it;
   $('fPrev').classList.toggle('ed',!!it?.ede); $('fReal').classList.toggle('ed',!!it?.edf);
+  { const cats={}; FLIST.forEach(t=>{ const c=String(t.cat||'').trim().toUpperCase()||''; cats[c]=cats[c]||{n:0,v:0}; cats[c].n++; cats[c].v+=n0(t.v); });
+    const F0=$('fFilt').value, keys=Object.keys(cats).sort((a,b)=>cats[b].v-cats[a].v);
+    $('fChips').innerHTML = `<span class="fc-l">Categorias</span>`+(F0!=='all'?`<button class="fchip clr" data-f="all">✕ limpar filtro</button>`:'')+
+      keys.map(c=>`<button class="fchip ${F0==='cat:'+c?'on':''}" data-f="cat:${esc(c)}">${c?esc(c):'Sem categoria'} <b class="num">${fmt(cats[c].v)}</b><small>${cats[c].n}</small></button>`).join('');
+    $('fChips').querySelectorAll('.fchip').forEach(b=>b.onclick=()=>{ $('fFilt').value = $('fFilt').value===b.dataset.f?'all':b.dataset.f; renderFatura(true); });
+    const used=new Set(CATS_DEF); DATA.forEach(d=>d.tx.forEach(t=>{ if(t.cat) used.add(String(t.cat).toUpperCase()); }));
+    $('dlCat').innerHTML=[...used].sort().map(c=>`<option value="${esc(c)}">`).join('');
+    $('fGrp').querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.g===FGRP)); }
   if(!rows) return;
   const q=norm($('fSearch').value);
   const F=$('fFilt').value, SO=$('fSort').value;
   const pp=t=>{ const p=splitP(t.d).p; if(!p) return null; const [a,n]=p.split('/').map(Number); return {a,n,rest:n-a}; };
-  const flt=t=>F==='all'||(F==='est'&&t.est)||(F==='real'&&!t.est)||(F==='parc'&&pp(t))||(F==='recs'&&t.rec)||(F==='vista'&&!pp(t)&&!t.rec)||(F==='pend'&&!t.ok)||(F==='ok'&&t.ok);
+  const flt=t=>F==='all'||(F==='rep'&&t.rep)||(F.startsWith('cat:')&&norm(t.cat)===norm(F.slice(4)))||(F==='est'&&t.est)||(F==='real'&&!t.est)||(F==='parc'&&pp(t))||(F==='recs'&&t.rec)||(F==='vista'&&!pp(t)&&!t.rec)||(F==='pend'&&!t.ok)||(F==='ok'&&t.ok);
   const byV=(a,b)=>n0(FLIST[b].v)-n0(FLIST[a].v);
   const cmp={prev:(a,b)=>(FLIST[b].est-FLIST[a].est)||byV(a,b), val:byV,
     desc:(a,b)=>splitP(FLIST[a].d).d.localeCompare(splitP(FLIST[b].d).d,'pt-BR'),
     parc:(a,b)=>((!!pp(FLIST[b]))-(!!pp(FLIST[a])))||byV(a,b),
     fim:(a,b)=>((pp(FLIST[a])?.rest??999)-(pp(FLIST[b])?.rest??999))||byV(a,b),
     pend:(a,b)=>(FLIST[a].ok-FLIST[b].ok)||(FLIST[b].est-FLIST[a].est)||byV(a,b),
-    who:(a,b)=>String(FLIST[a].who||'').localeCompare(String(FLIST[b].who||''))||byV(a,b)}[SO]||byV;
-  const idx=FLIST.map((t,i)=>i).filter(i=>flt(FLIST[i])&&(!q||norm(FLIST[i].d).includes(q)||norm(FLIST[i].who).includes(q))).sort(cmp);
-  $('fList').innerHTML=idx.length?idx.map(i=>{const t=FLIST[i]; return `<div class="trow ${t.ok?'okrow':''} ${t.est?'estrow':''}" data-i="${i}">
+    who:(a,b)=>String(FLIST[a].cat||'~').localeCompare(String(FLIST[b].cat||'~'))||byV(a,b)}[SO]||byV;
+  const idx=FLIST.map((t,i)=>i).filter(i=>flt(FLIST[i])&&(!q||norm(FLIST[i].d).includes(q)||norm(FLIST[i].cat).includes(q)||norm(FLIST[i].rep).includes(q))).sort(cmp);
+  const rowH=i=>{const t=FLIST[i]; return `<div class="trow ${t.ok?'okrow':''} ${t.est?'estrow':''}" data-i="${i}">
       <button class="chk ${t.ok?'on':''}" title="${t.ok?'Conferido — clique para desmarcar':'Marcar como conferido'}">✓</button>
       <span style="display:flex;align-items:center;gap:6px;min-width:0"><input class="ein" data-f="d" value="${esc(splitP(t.d).d)}" placeholder="Descrição" style="flex:1;min-width:0"><button class="estb ${t.est?'on':''}" title="${t.est?'É uma PREVISÃO (estimativa) — será baixada quando a compra real for lançada/importada. Clique para tornar real.':'Marcar como previsão (estimativa)'}">previsão</button></span>
       ${t.rec?`<button class="recb" title="Compra recorrente (assinatura) — repete todo mês">🔁 mensal</button>`:`<input class="ein pc" data-f="p" value="${esc(splitP(t.d).p)}" placeholder="—" title="Ex.: 3/10 (vazio = à vista)">`}
-      <input class="ein who" data-f="who" value="${esc(t.who||'')}" placeholder="—">
+      <input class="ein who catin" data-f="cat" list="dlCat" value="${esc(t.cat||'')}" placeholder="categoria" autocomplete="off">
+      <button class="repb ${t.rep?'on':''}" title="${t.rep?'Repor em: '+esc(t.rep)+' — clique para alterar':'Marcar para repor (cria/soma um item em Reposições)'}">↺<span class="rl"> ${t.rep?esc(t.rep):'repor'}</span></button>
       <input class="ein r num" data-f="v" inputmode="decimal" value="${fmtIn(t.v)}" placeholder="0,00">
-      <span class="acts"><button class="more" title="Converter: parcelado, recorrente, compra única, cancelar parcelas…">⋯</button><button class="del" title="Excluir lançamento">🗑</button></span></div>`}).join('')
-    :'<div class="empty">Nenhum lançamento. Clique em “＋ Lançamento”.</div>';
+      <span class="acts"><button class="more" title="Converter: parcelado, recorrente, compra única, cancelar parcelas…">⋯</button><button class="del" title="Excluir lançamento">🗑</button></span></div>`};
+  const tipo=t=>t.est?'◷ Previsões':pp(t)?'💳 Parceladas':t.rec?'🔁 Recorrentes':'🛒 À vista';
+  const gkey={tipo, cat:t=>String(t.cat||'').trim().toUpperCase()||'Sem categoria', rep:t=>t.rep?'↺ '+String(t.rep).toUpperCase():'Não repor'}[FGRP];
+  if(!idx.length) $('fList').innerHTML='<div class="empty">Nenhum lançamento. Clique em “＋ Lançamento”.</div>';
+  else if(!gkey) $('fList').innerHTML=idx.map(rowH).join('');
+  else { const G=new Map(); idx.forEach(i=>{ const k=gkey(FLIST[i]); if(!G.has(k)) G.set(k,[]); G.get(k).push(i); });
+    const order=FGRP==='tipo'?['◷ Previsões','🔁 Recorrentes','💳 Parceladas','🛒 À vista']:[...G.keys()].sort((a,b)=>G.get(b).reduce((s,i)=>s+n0(FLIST[i].v),0)-G.get(a).reduce((s,i)=>s+n0(FLIST[i].v),0));
+    $('fList').innerHTML=order.filter(k=>G.has(k)).map(k=>{ const L=G.get(k); return `<div class="tgrp"><b>${esc(k)}</b><span>${L.length} item(ns)</span><b class="num">${fmt(L.reduce((s,i)=>s+n0(FLIST[i].v),0))}</b></div>`+L.map(rowH).join(''); }).join(''); }
 }
+const CATS_DEF=['ALIMENTAÇÃO','MERCADO','COMBUSTÍVEL','SAÚDE / FARMÁCIA','ASSINATURAS','CASA','VESTUÁRIO','LAZER','EDUCAÇÃO','TRANSPORTE','PRESENTES','ESCRITÓRIO','OUTROS'];
+let REPI=-1;
+function openRep(i){ REPI=i; const t=FLIST[i]; const m=DATA[cur];
+  $('repT').textContent=`${splitP(t.d).d} · ${fmt(t.v)}`;
+  const names=new Set(); m.sec.reposicoes.forEach(x=>{ if(norm(x.n)) names.add(String(x.n).toUpperCase()); }); DATA.forEach(d=>d.tx.forEach(x=>{ if(x.rep) names.add(String(x.rep).toUpperCase()); })); names.add('ESCRITÓRIO');
+  $('repOpts').innerHTML=[...names].sort().map(n=>`<button class="repo ${norm(t.rep)===norm(n)?'on':''}" data-n="${esc(n)}">↺ ${esc(n)}</button>`).join('');
+  $('repOpts').querySelectorAll('.repo').forEach(b=>b.onclick=()=>setRep(b.dataset.n));
+  $('repNew').value=''; $('repNone').style.display=t.rep?'':'none'; openOv('ovRep'); setTimeout(()=>$('repNew').focus(),50); }
+async function setRep(name){ const i=REPI; if(i<0) return; const t=FLIST[i]; name=String(name||'').trim().toUpperCase();
+  closeOv('ovRep'); t.rep=name; commitFatura(); renderFatura(true);
+  const sp=splitP(t.d);
+  if((sp.p||t.rec) && !(await askChoice('Próximas faturas',`Aplicar também nas ${sp.p?'próximas parcelas':'próximas cobranças'} de “${sp.d}”?`,[{t:'Sim, aplicar nas próximas',v:1,cls:'primary'},{t:'Só nesta fatura',v:0}]))) {}
+  else if(sp.p||t.rec){ const nb=norm(sp.d); const n=forwardTx(FC(),list=>{ list.forEach(x=>{ if(norm(splitP(x.d).d)===nb) x.rep=name; }); }); refreshAll(); if(n) toast(`✓ Aplicado em mais ${n} fatura(s)`); }
+  toast(name?`↺ Vai somar em Reposições › ${name}`:'Removido da reposição'); }
+$('repOk').onclick=()=>{ const v=$('repNew').value.trim(); if(!v) return toast('Digite o nome do item'); setRep(v); };
+$('repNew').onkeydown=e=>{ if(e.key==='Enter'){ e.preventDefault(); $('repOk').click(); } };
+$('repNone').onclick=()=>setRep('');
 function commitFatura(){
-  const card=FC(); if(!norm(card)) return; const m=DATA.find(d=>d.key===FMKEY)||DATA[cur]; TXED[m.key+'|'+norm(card)]=FLIST.map(t=>({d:t.d,v:n0(t.v),who:t.who,card:t.card||card,...(t.ok?{ok:true}:{}),...(t.est?{est:true}:{}),...(t.rec?{rec:true}:{})})); saveTx();
+  const card=FC(); if(!norm(card)) return; const m=DATA.find(d=>d.key===FMKEY)||DATA[cur]; TXED[m.key+'|'+norm(card)]=FLIST.map(t=>({d:t.d,v:n0(t.v),who:t.who,cat:t.cat||'',rep:t.rep||'',card:t.card||card,...(t.cat?{cat:t.cat}:{}),...(t.rep?{rep:t.rep}:{}),...(t.ok?{ok:true}:{}),...(t.est?{est:true}:{}),...(t.rec?{rec:true}:{})})); saveTx();
   const t=fTotal(); bumpCard(m,card,t-FBASE); FBASE=t; // bumpCard usa o total absoluto
   refreshAll();
 }
@@ -2089,12 +2164,13 @@ $('fList').addEventListener('change',e=>{
     if(p && !/^\d+\/\d+$/.test(p)){ toast('Parcela no formato 3/10'); e.target.value=cur.p; return; }
     FLIST[i].d=joinP(d,p);
   }
-  else FLIST[i][f]=e.target.value.trim();
-  commitFatura();
+  else FLIST[i][f]= f==='cat' ? e.target.value.trim().toUpperCase() : e.target.value.trim();
+  commitFatura(); if(f==='cat') renderFatura(true);
 });
 $('fList').addEventListener('click',e=>{
-  if(DATA[cur]?.closed && e.target.closest('.chk,.del,.estb,.more,.recb')) return toast('🔒 Mês fechado — reabra para editar');
+  if(DATA[cur]?.closed && e.target.closest('.chk,.del,.estb,.more,.recb,.repb')) return toast('🔒 Mês fechado — reabra para editar');
   const mo=e.target.closest('.more,.recb'); if(mo){ txMenu(+mo.closest('.trow').dataset.i); return; }
+  const rb=e.target.closest('.repb'); if(rb){ openRep(+rb.closest('.trow').dataset.i); return; }
   const eb=e.target.closest('.estb'); if(eb){ const i=+eb.closest('.trow').dataset.i; FLIST[i].est=!FLIST[i].est; commitFatura(); renderFatura(true); return; }
   const c=e.target.closest('.chk'); if(c){ const i=+c.closest('.trow').dataset.i; FLIST[i].ok=!FLIST[i].ok; commitFatura(); renderFatura(true); return; }
   const b=e.target.closest('.del'); if(!b) return; const i=+b.closest('.trow').dataset.i; const t=FLIST[i];
@@ -2128,7 +2204,8 @@ $('fReset').onclick=()=>{
 $('fSearch').oninput=()=>renderFatura(true);
 try{ $('fSort').value=localStorage.getItem('cf_fsort')||'prev'; }catch(e){}
 $('fSort').onchange=()=>{ lsSet('cf_fsort',$('fSort').value); renderFatura(true); };
-$('fFilt').onchange=()=>renderFatura(true);
+let FGRP=(()=>{ try{ return localStorage.getItem('cf_fgrp')||'none'; }catch(e){ return 'none'; } })();
+$('fGrp').querySelectorAll('button').forEach(b=>b.onclick=()=>{ FGRP=b.dataset.g; try{ localStorage.setItem('cf_fgrp',FGRP); }catch(e){} renderFatura(true); });
 function tplAdds(card,existing){
   const tpl=cardTpl(card); if(!tpl) return [];
   const out=[]; const cnt={};
@@ -2140,8 +2217,8 @@ function tplAdds(card,existing){
 function fatReplace(src,card){
   const out=[]; let ended=0;
   const recs=[];
-  for(const t of src){ const sp=splitP(t.d); if(!sp.p){ if(t.rec) recs.push({d:t.d,v:t.v,who:t.who,card,rec:true}); continue; } const [a,n]=sp.p.split('/').map(Number);
-    if(a>=n){ ended++; continue; } out.push({d:joinP(sp.d,`${a+1}/${n}`),v:t.v,who:t.who,card}); }
+  for(const t of src){ const sp=splitP(t.d); if(!sp.p){ if(t.rec) recs.push({d:t.d,v:t.v,who:t.who,cat:t.cat||'',rep:t.rep||'',card,rec:true}); continue; } const [a,n]=sp.p.split('/').map(Number);
+    if(a>=n){ ended++; continue; } out.push({d:joinP(sp.d,`${a+1}/${n}`),v:t.v,who:t.who,cat:t.cat||'',rep:t.rep||'',card}); }
   const tpl=tplAdds(card,[]);
   return {list:[...tpl,...recs,...out],parc:out.length,tpl:tpl.length,rec:recs.length,ended};
 }
@@ -2151,9 +2228,9 @@ function fatAdds(src,existing,card){
     const sp=splitP(t.d);
     if(sp.p){ const [a,n]=sp.p.split('/').map(Number); if(a>=n){ ended++; continue; }
       const nd=joinP(sp.d,`${a+1}/${n}`); if(existing.concat(add).some(x=>{ const q=splitP(x.d); return norm(q.d)===norm(sp.d)&&q.p===`${a+1}/${n}`; })){ dup++; continue; }
-      add.push({d:nd,v:t.v,who:t.who,card}); }
+      add.push({d:nd,v:t.v,who:t.who,cat:t.cat||'',rep:t.rep||'',card}); }
     else if(!cardTpl(card)){ if(existing.concat(add).some(x=>!splitP(x.d).p && firstTok(x.d)===firstTok(t.d))){ dup++; continue; }
-      add.push({d:t.d,v:t.v,who:t.who,card,est:true}); }
+      add.push({d:t.d,v:t.v,who:t.who,cat:t.cat||'',rep:t.rep||'',card,est:true}); }
   }
   const tpl=tplAdds(card,existing.concat(add)); add.push(...tpl);
   return {add,ended,dup,tpl:tpl.length};
@@ -2241,7 +2318,7 @@ $('nGo').onclick=()=>{
   const settled=[];
   for(const x of r.plan){
     const m=DATA.find(d=>d.key===x.key), cn=norm(known);
-    const list=m.tx.filter(t=>norm(t.card)===cn).map(t=>({d:t.d,v:t.v,who:t.who,card:t.card,ok:!!t.ok,est:!!t.est,rec:!!t.rec}));
+    const list=m.tx.filter(t=>norm(t.card)===cn).map(t=>({d:t.d,v:t.v,who:t.who,cat:t.cat||'',rep:t.rep||'',card:t.card,ok:!!t.ok,est:!!t.est,rec:!!t.rec}));
     const before=list.reduce((s,t)=>s+n0(t.v),0);
     const st=settleEst(list,{d:x.d,v:x.v}); if(st) settled.push(st.d);
     list.push({d:x.d,v:x.v,who,card:known,...(x.rec?{rec:true}:{})}); TXED[m.key+'|'+cn]=list;
@@ -2567,7 +2644,7 @@ $('iGo').onclick=()=>{
   const cardIn=$('iCard').value.trim().toUpperCase(); const card=allCards().find(c=>norm(c)===norm(cardIn))||cardIn; const cn=norm(card);
   const who=$('iWho').value.trim().toUpperCase(); const okDup=$('iOkDup').checked, okNew=$('iOkNew').checked;
   takeSnap('antes de importar fatura '+card+' '+m.key);
-  const list=m.tx.filter(t=>norm(t.card)===cn).map(t=>({d:t.d,v:t.v,who:t.who,card:t.card,ok:!!t.ok,est:!!t.est,rec:!!t.rec}));
+  const list=m.tx.filter(t=>norm(t.card)===cn).map(t=>({d:t.d,v:t.v,who:t.who,cat:t.cat||'',rep:t.rep||'',card:t.card,ok:!!t.ok,est:!!t.est,rec:!!t.rec}));
   const exist=list.slice(); const before=list.reduce((s,t)=>s+n0(t.v),0);
   let nNew=0,nDup=0; const settled=[];
   for(const x of IMP.items.filter(x=>x.sel)){
