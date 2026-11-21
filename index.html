@@ -153,7 +153,7 @@ body.dark .gcard.on{background:var(--y);border-color:var(--y)}body.dark .gcard.o
 .hc-v{font-size:24px;font-weight:900;letter-spacing:-.6px;margin-top:6px;line-height:1.1}
 .hc-p{font-size:11.5px;color:var(--tx3);margin-bottom:6px}.hc-p b{font-weight:800;color:var(--tx3)}
 .hc-p b.pos,.hc-row b.pos{color:var(--green)}.hc-p b.neg,.hc-row b.neg{color:var(--red)}
-.hc-tot .hc-p b.pos,.hc-tot .hc-row b.pos{color:#4ade80}.hc-tot .hc-p b.neg,.hc-tot .hc-row b.neg{color:#f87171}
+
 .hc-row{display:flex;justify-content:space-between;align-items:center;font-size:11.5px;color:var(--tx2);padding:5px 0;border-top:1px dashed var(--line)}
 .hc-row b{font-weight:700}
 .hc-row .sain.sm{width:110px;text-align:right;font-size:12px;font-weight:700;color:var(--tx);border:1px solid var(--line);background:var(--card2)}
@@ -165,11 +165,7 @@ body.dark .gcard.on{background:var(--y);border-color:var(--y)}body.dark .gcard.o
 .dchip{white-space:nowrap;font-size:11px;font-weight:800;padding:2px 8px;border-radius:99px}
 .dchip.prv{opacity:.7;font-weight:700}
 .dchip.up{background:rgba(22,163,74,.12);color:var(--green)}.dchip.dn{background:rgba(220,38,38,.1);color:var(--red)}
-.hc-tot{background:#111;border-color:#111;color:#fff}
-.hc-tot .hc-h,.hc-tot .hc-row{color:#bbb}.hc-tot .hc-row{border-color:#333}.hc-tot .hc-v{color:var(--y)}
-.hc-tot .hc-p,.hc-tot .hc-p b,.hc-tot .hc-f{color:#888}
-.hc-tot .dchip.up{background:rgba(74,222,128,.15);color:#4ade80}.hc-tot .dchip.dn{background:rgba(248,113,113,.15);color:#f87171}
-body.dark .hc-tot{background:var(--card2);border-color:var(--y)}
+.hc-tot{border:2px solid var(--y);background:linear-gradient(180deg,var(--ytint),var(--card) 60%)}
 .glabel{font-size:10.5px;font-weight:800;color:var(--tx3);text-transform:uppercase;letter-spacing:.8px;margin:-4px 0 6px}
 @media(max-width:1100px){.hcards{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:700px){.hc-row{font-size:10.5px;gap:4px}.hc-row>span{white-space:nowrap}.dchip{white-space:nowrap;font-size:10px;padding:1px 6px}.hc-row .pin:not(.on){display:none}.hcards{gap:8px}.hc{padding:11px 12px;border-radius:14px}.hc-v{font-size:18px}.hc-row .sain.sm{width:90px}.sechead small{display:none}}
@@ -1133,7 +1129,7 @@ function renderHero(){
   const sub=p=> net ? `${net>0?'aportado':'resgatado'} ${fmt(Math.abs(net))} · fica na conta ${fmt(S.resultadoInv[p])}` : '';
   $('resEstS').textContent=''; $('resEfS').textContent='';
   const ri=S.resultadoInv||{e:re-net,f:rf-net};
-  $('resNote').innerHTML = `<div class="hc-row"><span>${net<0?'Resgate':'Aporte'}</span><b class="num">${fmt(Math.abs(net))}</b></div>
+  $('resNote').innerHTML = `<div class="hc-row"><span>${net<0?'Resgate':'Aporte'}</span><b class="num ${net?'pos':''}">${fmt(Math.abs(net))}</b></div>
     <div class="hc-row"><span>Resultado após aporte</span><b class="num ${n0(ri.f)<0?'neg':'pos'}">${fmt(ri.f)}</b></div>
     <div class="hc-row"><span>Previsto após aporte</span><b class="num ${n0(ri.e)<0?'neg':'pos'}">${fmt(ri.e)}</b></div>`;
   $('resNote').style.display = '';
@@ -1150,7 +1146,7 @@ function renderHero(){
   $('saldos').innerHTML=`
     <div class="card hc clk" data-go="bank" title="Conferir com o saldo do banco">
       <div class="hc-h"><span class="hc-ic" style="background:#111;color:var(--y)">▣</span>Conta corrente<span class="hc-go">›</span></div>
-      <div class="hc-v num ${n0(S.saldoAtual?.f)<0?'neg':''}">${fmt(S.saldoAtual?.f)}</div>
+      <div class="hc-v num ${sg(S.saldoAtual?.f)}">${fmt(S.saldoAtual?.f)}</div>
       <div class="hc-p">previsto <b class="num ${sg(S.saldoAtual?.e)}">${fmt(S.saldoAtual?.e)}</b></div>
       <div class="hc-row sant"><span>Saldo anterior <span class="pin ${fixed?'on':''}" id="saPin" title="${fixed?'Fixado neste mês — clique para voltar ao automático':'Automático: vem do mês anterior. Digite para fixar.'}">${fixed?'📌 ✕':'auto'}</span></span>
         <input class="ein sain sm num ${fixed?'ed':''}" data-sa="f" value="${fmtIn(S.saldoAnt?.f)}" placeholder="—" title="Saldo anterior (realizado) — digite para fixar"></div>
@@ -1160,7 +1156,7 @@ function renderHero(){
     </div>
     <div class="card hc clk" data-go="inv" title="Abrir investimentos">
       <div class="hc-h"><span class="hc-ic" style="background:var(--green);color:#fff">▲</span>Investimentos<span class="hc-go">›</span></div>
-      <div class="hc-v num">${fmt(S.invest?.f)}</div>
+      <div class="hc-v num ${sg(S.invest?.f)}">${fmt(S.invest?.f)}</div>
       <div class="hc-p">previsto <b class="num ${sg(S.invest?.e)}">${fmt(S.invest?.e)}</b></div>
       <div class="hc-row"><span>Mês anterior</span><b class="num ${sg(S.investAnt?.f)}">${fmt(S.investAnt?.f)}</b></div>
       <div class="hc-row"><span>Variação atual</span>${chip(S.investAnt,S.invest)}</div>
@@ -1169,7 +1165,7 @@ function renderHero(){
     </div>
     <div class="card hc hc-tot">
       <div class="hc-h"><span class="hc-ic" style="background:var(--y);color:#111">Σ</span>Patrimônio total</div>
-      <div class="hc-v num">${fmt(S.saldoTotal?.f)}</div>
+      <div class="hc-v num ${sg(S.saldoTotal?.f)}">${fmt(S.saldoTotal?.f)}</div>
       <div class="hc-p">previsto <b class="num ${sg(S.saldoTotal?.e)}">${fmt(S.saldoTotal?.e)}</b></div>
       <div class="hc-row"><span>Mês anterior</span><b class="num ${sg(S.totalAnt?.f)}">${fmt(S.totalAnt?.f)}</b></div>
       <div class="hc-row"><span>Variação atual</span>${chip(S.totalAnt,S.saldoTotal)}</div>
