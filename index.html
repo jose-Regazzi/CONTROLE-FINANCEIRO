@@ -151,7 +151,9 @@ body.dark .gcard.on{background:var(--y);border-color:var(--y)}body.dark .gcard.o
 .hc-ic{width:26px;height:26px;border-radius:8px;display:inline-grid;place-items:center;font-size:13px;font-weight:900}
 .hc-go{margin-left:auto;color:var(--tx3);font-size:16px}
 .hc-v{font-size:24px;font-weight:900;letter-spacing:-.6px;margin-top:6px;line-height:1.1}
-.hc-p{font-size:11.5px;color:var(--tx3);margin-bottom:6px}.hc-p b{font-weight:700;color:var(--tx3)}
+.hc-p{font-size:11.5px;color:var(--tx3);margin-bottom:6px}.hc-p b{font-weight:800;color:var(--tx3)}
+.hc-p b.pos,.hc-row b.pos{color:var(--green)}.hc-p b.neg,.hc-row b.neg{color:var(--red)}
+.hc-tot .hc-p b.pos,.hc-tot .hc-row b.pos{color:#4ade80}.hc-tot .hc-p b.neg,.hc-tot .hc-row b.neg{color:#f87171}
 .hc-row{display:flex;justify-content:space-between;align-items:center;font-size:11.5px;color:var(--tx2);padding:5px 0;border-top:1px dashed var(--line)}
 .hc-row b{font-weight:700}
 .hc-row .sain.sm{width:110px;text-align:right;font-size:12px;font-weight:700;color:var(--tx);border:1px solid var(--line);background:var(--card2)}
@@ -1126,14 +1128,14 @@ function renderHero(){
     saveEdits(); rebuild(); };
   const re=S.resultado.e, rf=S.resultado.f, net=m.netInv||0;
   $('resLbl').textContent = 'Resultado do mês';
-  $('resEst').textContent=fmt(re); $('resEst').className='num '+(re>=0?'':'neg');
+  $('resEst').textContent=fmt(re); $('resEst').className='num '+(re>=0?'pos':'neg');
   $('resEf').textContent=fmt(rf);  $('resEf').className='hc-v num '+(rf>=0?'pos':'neg');
   const sub=p=> net ? `${net>0?'aportado':'resgatado'} ${fmt(Math.abs(net))} · fica na conta ${fmt(S.resultadoInv[p])}` : '';
   $('resEstS').textContent=''; $('resEfS').textContent='';
   const ri=S.resultadoInv||{e:re-net,f:rf-net};
   $('resNote').innerHTML = `<div class="hc-row"><span>${net<0?'Resgate':'Aporte'}</span><b class="num">${fmt(Math.abs(net))}</b></div>
     <div class="hc-row"><span>Resultado após aporte</span><b class="num ${n0(ri.f)<0?'neg':'pos'}">${fmt(ri.f)}</b></div>
-    <div class="hc-row"><span>Previsto após aporte</span><b class="num ${n0(ri.e)<0?'neg':''}">${fmt(ri.e)}</b></div>`;
+    <div class="hc-row"><span>Previsto após aporte</span><b class="num ${n0(ri.e)<0?'neg':'pos'}">${fmt(ri.e)}</b></div>`;
   $('resNote').style.display = '';
   const pe=pct(n0(S.entradas.f),n0(S.entradas.e)), pd=pct(n0(S.despesas.f),n0(S.despesas.e));
   $('pEnt').textContent=pe.toFixed(0)+'%'; $('pEnt').parentNode.title=`Entradas: ${fmt(S.entradas.f)} de ${fmt(S.entradas.e)}`;
@@ -1143,12 +1145,13 @@ function renderHero(){
   const cell=(v,cls='')=>`<div class="mc ${cls}"><b class="num ${n0(v?.f)<0?'neg':''}">${fmt(v?.f)}</b><small class="num prv"><span class="pl">previsto</span>${fmt(v?.e)}</small></div>`;
   const dlt=(a,b)=>{ const d=r2(n0(b?.f)-n0(a?.f)); return `<span class="num ${d>=0?'pos':'neg'}">${d>=0?'+':''}${fmt(d)}</span>`; };
   const apTxt = m.aportes||m.retiradas ? `<span title="Aportes saem da conta corrente e vão para investimentos">aportes −${fmt(m.aportes)}${m.retiradas?' · retiradas +'+fmt(m.retiradas):''}</span>` : '';
+  const sg=v=>n0(v)<0?'neg':'pos';
   const chip=(a,b,p='f')=>{ const d=r2(n0(b?.[p])-n0(a?.[p])); return `<span class="dchip ${d>=0?'up':'dn'} ${p==='e'?'prv':''}">${d>=0?'▲ +':'▼ '}${fmt(d)}</span>`; };
   $('saldos').innerHTML=`
     <div class="card hc clk" data-go="bank" title="Conferir com o saldo do banco">
       <div class="hc-h"><span class="hc-ic" style="background:#111;color:var(--y)">▣</span>Conta corrente<span class="hc-go">›</span></div>
       <div class="hc-v num ${n0(S.saldoAtual?.f)<0?'neg':''}">${fmt(S.saldoAtual?.f)}</div>
-      <div class="hc-p">previsto <b class="num">${fmt(S.saldoAtual?.e)}</b></div>
+      <div class="hc-p">previsto <b class="num ${sg(S.saldoAtual?.e)}">${fmt(S.saldoAtual?.e)}</b></div>
       <div class="hc-row sant"><span>Saldo anterior <span class="pin ${fixed?'on':''}" id="saPin" title="${fixed?'Fixado neste mês — clique para voltar ao automático':'Automático: vem do mês anterior. Digite para fixar.'}">${fixed?'📌 ✕':'auto'}</span></span>
         <input class="ein sain sm num ${fixed?'ed':''}" data-sa="f" value="${fmtIn(S.saldoAnt?.f)}" placeholder="—" title="Saldo anterior (realizado) — digite para fixar"></div>
       <div class="hc-row"><span>Variação atual</span>${chip(S.saldoAnt,S.saldoAtual)}</div>
@@ -1158,8 +1161,8 @@ function renderHero(){
     <div class="card hc clk" data-go="inv" title="Abrir investimentos">
       <div class="hc-h"><span class="hc-ic" style="background:var(--green);color:#fff">▲</span>Investimentos<span class="hc-go">›</span></div>
       <div class="hc-v num">${fmt(S.invest?.f)}</div>
-      <div class="hc-p">previsto <b class="num">${fmt(S.invest?.e)}</b></div>
-      <div class="hc-row"><span>Mês anterior</span><b class="num">${fmt(S.investAnt?.f)}</b></div>
+      <div class="hc-p">previsto <b class="num ${sg(S.invest?.e)}">${fmt(S.invest?.e)}</b></div>
+      <div class="hc-row"><span>Mês anterior</span><b class="num ${sg(S.investAnt?.f)}">${fmt(S.investAnt?.f)}</b></div>
       <div class="hc-row"><span>Variação atual</span>${chip(S.investAnt,S.invest)}</div>
       <div class="hc-row"><span>Variação prevista</span>${chip(S.investAnt,S.invest,'e')}</div>
       <div class="hc-f">${m.aportes||m.retiradas?`aportes ${fmt(m.aportes)}${m.retiradas?' · retiradas '+fmt(m.retiradas):''}`:'sem aportes no mês'}</div>
@@ -1167,8 +1170,8 @@ function renderHero(){
     <div class="card hc hc-tot">
       <div class="hc-h"><span class="hc-ic" style="background:var(--y);color:#111">Σ</span>Patrimônio total</div>
       <div class="hc-v num">${fmt(S.saldoTotal?.f)}</div>
-      <div class="hc-p">previsto <b class="num">${fmt(S.saldoTotal?.e)}</b></div>
-      <div class="hc-row"><span>Mês anterior</span><b class="num">${fmt(S.totalAnt?.f)}</b></div>
+      <div class="hc-p">previsto <b class="num ${sg(S.saldoTotal?.e)}">${fmt(S.saldoTotal?.e)}</b></div>
+      <div class="hc-row"><span>Mês anterior</span><b class="num ${sg(S.totalAnt?.f)}">${fmt(S.totalAnt?.f)}</b></div>
       <div class="hc-row"><span>Variação atual</span>${chip(S.totalAnt,S.saldoTotal)}</div>
       <div class="hc-row"><span>Variação prevista</span>${chip(S.totalAnt,S.saldoTotal,'e')}</div>
       <div class="hc-f">corrente + investimentos</div>
