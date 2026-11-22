@@ -225,10 +225,14 @@ body.dark .gcard.on{background:var(--y);border-color:var(--y)}body.dark .gcard.o
 .ver{font-size:9.5px;font-weight:800;color:var(--tx3);background:var(--card2);border-radius:5px;padding:1px 5px;vertical-align:middle;letter-spacing:0}
 body .wrap{max-width:1880px}
 #ovEvo .mhead p,#ovGraf .mhead p,#ovRes .mhead p,#ovParc .mhead p{text-transform:none}
-.toprow{display:flex;gap:10px;margin-bottom:12px;align-items:stretch}
+.toprow{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;margin-bottom:12px;align-items:stretch}
+.compc{padding:10px 16px}.compc .legend{flex:0 1 460px;max-width:460px}.compc h3{margin-bottom:4px}.compc .donut-wrap{grid-template-columns:120px minmax(0,1fr)}
+.ctiles.side{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin:0}.ctiles.side .ctile{cursor:pointer}
+.catbars.big{max-height:68vh}
+#ovCat .mhead p{text-transform:none}
 .ctiles.top{flex:1;margin:0;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:8px}
 .ctiles.top .ctile{cursor:pointer}
-.pcards{display:grid;grid-template-columns:repeat(5,104px);gap:8px}
+.pcards{display:grid;grid-template-columns:repeat(3,112px);gap:8px}
 #ovEvo .chart{height:340px}
 .pcard{padding:10px 12px;display:flex;flex-direction:column;justify-content:center;gap:2px;cursor:pointer;border-radius:14px;transition:.15s}
 .pcard:hover{border-color:var(--yd);transform:translateY(-1px);background:var(--ytint)}
@@ -255,8 +259,8 @@ body .wrap{max-width:1880px}
 .gcards{gap:6px;margin-bottom:8px}.gcard{padding:6px 10px 7px 12px}
 .donut-wrap{gap:14px}
 .catbars{max-height:320px;overflow:auto;gap:5px}
-@media(max-width:1300px){.toprow{flex-direction:column}.pcards{grid-template-columns:repeat(5,1fr)}}
-@media(max-width:700px){.pcards{grid-template-columns:repeat(3,1fr)}.pcard{padding:8px}.pcard small{display:none}}
+@media(max-width:1100px){.toprow{grid-template-columns:1fr}.pcards{grid-template-columns:repeat(6,1fr)}}
+@media(max-width:700px){.pcards{grid-template-columns:repeat(3,1fr)!important}.pcard{padding:8px}.pcard small{display:none}}
 .donut-wrap{display:flex;gap:16px;align-items:center}
 .legend{display:grid;gap:8px;flex:1}
 .lg{display:flex;align-items:center;gap:8px;font-size:12.5px}
@@ -641,7 +645,7 @@ body.locked .more{display:none}
   <div class="top">
     <div class="brand">
       <div class="logo">R$</div>
-      <div class="bt"><h1>Controle Financeiro <small class="ver" title="Versão do app">v39</small></h1><p id="srcInfo">Previsto × Realizado</p></div>
+      <div class="bt"><h1>Controle Financeiro <small class="ver" title="Versão do app">v40</small></h1><p id="srcInfo">Previsto × Realizado</p></div>
     </div>
   <div class="monthbar" id="mbar">
     <button class="navbtn" id="prev">‹</button>
@@ -688,15 +692,19 @@ body.locked .more{display:none}
   <div class="sechead"><h2><span class="sh-ic">⇅</span>Entradas e saídas</h2><small>realizado × previsto · clique para ver os itens</small></div>
   <div class="kpis" id="kpis"></div>
 
-  <div class="sechead"><h2><span class="sh-ic">💳</span>Cartões e painéis</h2><small>clique no cartão para abrir a fatura</small><button class="mini" id="txCfg" title="Cadastrar, renomear, apagar e configurar cartões">⚙ Configurar cartões</button></div>
+  <div class="sechead"><h2><span class="sh-ic">▦</span>Painéis e composição</h2><small>clique para abrir</small></div>
   <div class="toprow">
-    <div class="ctiles top" id="cardTabs"></div>
     <div class="pcards">
       <div class="card pcard" data-p="parc"><span class="pc-ic">🧾</span><b>Parcelados</b><small>parcelas restantes</small></div>
       <div class="card pcard" data-p="rec"><span class="pc-ic">🔁</span><b>Recorrentes</b><small>assinaturas</small></div>
+      <div class="card pcard" data-p="cat"><span class="pc-ic">🏷️</span><b>Categorias</b><small>custos do mês</small></div>
       <div class="card pcard" data-p="graf"><span class="pc-ic">📊</span><b>Gráficos</b><small>categorias no ano</small></div>
       <div class="card pcard" data-p="evo"><span class="pc-ic">📈</span><b>Evolução</b><small>entradas × despesas</small></div>
       <div class="card pcard" data-p="res"><span class="pc-ic">📋</span><b>Resumo</b><small>previsto mês a mês</small></div>
+    </div>
+    <div class="card compc">
+      <h3>🧭 Composição das despesas <span class="pill" id="compMode">realizado</span><button class="mini" id="catBtn" style="margin-left:8px">🏷️ Custos por categoria</button></h3>
+      <div class="donut-wrap"><svg id="donut" width="120" height="120" viewBox="0 0 170 170"></svg><div class="legend" id="legend"></div></div>
     </div>
   </div>
 
@@ -709,10 +717,8 @@ body.locked .more{display:none}
       <div class="items" id="detItems"></div>
     </div>
     <div class="card">
-      <h3>🧭 Composição das despesas <span class="pill" id="compMode">realizado</span></h3>
-      <div class="donut-wrap"><svg id="donut" width="130" height="130" viewBox="0 0 170 170"></svg><div class="legend" id="legend"></div></div>
-      <h3 style="margin-top:10px">🏷️ Custos por categoria <span class="pill" id="catMode"></span></h3>
-      <div class="catbars" id="catBars"></div>
+      <h3>💳 Cartões do mês <small style="font-weight:600;color:var(--tx3);font-size:11px">clique para abrir a fatura</small><button class="mini" id="txCfg" style="margin-left:auto" title="Cadastrar, renomear, apagar e configurar cartões">⚙ Configurar cartões</button></h3>
+      <div class="ctiles side" id="cardTabs"></div>
       <div hidden><span id="txCount"></span><input id="txSearch"><div id="txList"></div></div>
     </div>
   </div>
@@ -848,6 +854,9 @@ body.locked .more{display:none}
     <div class="mbody"><p id="askM" style="font-size:13px;color:var(--tx2);line-height:1.5;margin:0 0 14px;white-space:pre-line"></p><div id="askB" style="display:grid;gap:8px"></div></div>
   </div>
 </div>
+<div class="ov" id="ovCat" style="z-index:40"><div class="modal" style="width:min(820px,100%)">
+  <div class="mhead"><div class="logo" style="width:40px;height:40px;font-size:18px">🏷️</div><div><h2>Custos por categoria</h2><p id="catMode"></p></div><button class="close" data-close="ovCat">✕</button></div>
+  <div class="mbody"><div class="catbars big" id="catBars"></div></div></div></div>
 <div class="ov" id="ovEvo" style="z-index:40"><div class="modal" style="width:min(1200px,100%)">
   <div class="mhead"><div class="logo" style="width:40px;height:40px;font-size:18px">📈</div><div><h2>Evolução</h2><p id="chartYear"></p></div><button class="close" data-close="ovEvo">✕</button></div>
   <div class="mbody"><svg class="chart" id="chart" preserveAspectRatio="none"></svg>
@@ -1921,7 +1930,7 @@ function renderDonut(){
     for(const sec of ['fixas','variaveis']) for(const it of m.sec[sec]) add(it.cat, mode==='f'?n0(it.f):n0(it.e));
     for(const t of m.tx) add(t.cat, n0(t.v));
     const L=Object.entries(G).filter(([k,v])=>v>0).sort((a,b)=>(a[0]===''?1:0)-(b[0]===''?1:0)||b[1]-a[1]), T=L.reduce((s,x)=>s+x[1],0), mx=Math.max(1,...L.filter(x=>x[0]).map(x=>x[1]),...L.map(x=>x[1]));
-    $('catMode').textContent=(mode==='f'?'realizado':'previsto')+' + faturas';
+    $('catMode').textContent=`${MES[m.m]}/${m.y} · fixas e variáveis (${mode==='f'?'realizado':'previsto'}) + lançamentos das faturas`;
     $('catBars').innerHTML=L.length?L.map(([k,v])=>`<div class="cbar ${k?'':'none'}"><span class="cb-n">${k?`<i>${catIcon(k)}</i>${esc(k)}`:'<i>·</i>Sem categoria'}</span><span class="cb-b"><i style="width:${(v/mx*100).toFixed(1)}%"></i></span><b class="num">${fmt(v)}</b><small>${T?(v/T*100).toFixed(0):0}%</small></div>`).join('')
       :'<div class="empty">Sem despesas no mês</div>'; }
   $('legend').innerHTML=parts.map(([n,v,c])=>`<div class="lg"><i style="background:${c}"></i><span>${n}</span><b class="num">${fmt(v)}</b><small style="color:var(--tx3);width:38px;text-align:right">${tot?(v/tot*100).toFixed(0):0}%</small></div>`).join('');
@@ -2005,8 +2014,10 @@ function renderParc(){ if(PMODE==='rec') return renderRec(); $('parcH').textCont
   $('parcTbl').innerHTML=L.length?`<table class="rtab"><thead><tr><th>Compra</th><th>Cartão</th><th>Parcela</th><th>Valor</th><th>Restam</th><th>Total restante</th><th>Termina</th></tr></thead><tbody>${L.map(x=>`<tr><td>${x.cat?catIcon(x.cat)+' ':''}<b>${esc(x.d)}</b></td><td><small>${esc(x.card)}</small></td><td><span class="pbadge">${x.a}/${x.n}</span></td><td class="num">${fmt(x.v)}</td><td class="num">${x.rest?x.rest+'×':'<small>última</small>'}</td><td class="num b">${x.rest?fmt(x.rv):'—'}</td><td>${x.end}</td></tr>`).join('')}</tbody>
     <tfoot><tr><td colspan="3">Total</td><td class="num">${fmt(tv)}</td><td></td><td class="num b">${fmt(trv)}</td><td></td></tr></tfoot></table>`:'<div class="empty">Nenhuma compra parcelada neste mês</div>'; }
 const PANEL={ovGraf:renderGraf,ovRes:renderRes,ovParc:renderParc};
+$('catBtn').onclick=()=>{ renderDonut(); openOv('ovCat'); };
 document.querySelectorAll('.pcard').forEach(el=>el.onclick=()=>{ const p=el.dataset.p; PYR=null;
   if(p==='evo'){ openOv('ovEvo'); setTimeout(renderChart,30); }
+  else if(p==='cat'){ renderDonut(); openOv('ovCat'); }
   else { if(p==='parc'||p==='rec') PMODE=p; const id={graf:'ovGraf',res:'ovRes',parc:'ovParc',rec:'ovParc'}[p]; openOv(id); setTimeout(PANEL[id],30); } });
 function renderChart(){
   if(!DATA.length) return;
