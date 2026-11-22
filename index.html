@@ -223,6 +223,40 @@ body.dark .gcard.on{background:var(--y);border-color:var(--y)}body.dark .gcard.o
 .autotag{font-size:10px;font-weight:800;color:var(--blue);background:rgba(37,99,235,.08);border-radius:6px;padding:1px 6px;white-space:nowrap}
 .autov{text-align:right;padding-right:12px;font-weight:700;color:var(--blue)}
 .ver{font-size:9.5px;font-weight:800;color:var(--tx3);background:var(--card2);border-radius:5px;padding:1px 5px;vertical-align:middle;letter-spacing:0}
+body .wrap{max-width:1880px}
+#ovEvo .mhead p,#ovGraf .mhead p,#ovRes .mhead p,#ovParc .mhead p{text-transform:none}
+.toprow{display:flex;gap:10px;margin-bottom:12px;align-items:stretch}
+.ctiles.top{flex:1;margin:0;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:8px}
+.ctiles.top .ctile{cursor:pointer}
+.pcards{display:grid;grid-template-columns:repeat(5,104px);gap:8px}
+#ovEvo .chart{height:340px}
+.pcard{padding:10px 12px;display:flex;flex-direction:column;justify-content:center;gap:2px;cursor:pointer;border-radius:14px;transition:.15s}
+.pcard:hover{border-color:var(--yd);transform:translateY(-1px);background:var(--ytint)}
+.pcard .pc-ic{font-size:20px}.pcard b{font-size:13px;font-weight:900}.pcard small{font-size:10.5px;color:var(--tx3)}
+.yrchips{display:flex;gap:6px;margin-bottom:10px}.yrchips button{border:1px solid var(--line);background:var(--card);font:inherit;font-size:12px;font-weight:800;padding:4px 12px;border-radius:9px;cursor:pointer}.yrchips button.on{background:#111;color:var(--y);border-color:#111}
+.glegend{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:10px;font-size:12px}.glegend span{display:inline-flex;align-items:center;gap:6px}.glegend i{width:10px;height:10px;border-radius:3px;display:inline-block}
+.rtwrap{overflow:auto;max-height:66vh}
+.rtab{width:100%;border-collapse:collapse;font-size:12.5px}
+.rtab th{position:sticky;top:0;background:var(--card);text-align:right;font-size:10.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--tx3);padding:8px;border-bottom:2px solid var(--y);white-space:nowrap}
+.rtab th:first-child,.rtab td:first-child{text-align:left}
+.rtab td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+.rtab td.b{font-weight:800}.rtab td.neg{color:var(--red)}
+.rtab tbody tr{cursor:pointer}.rtab tbody tr:hover{background:var(--ytint)}.rtab tr.cur{background:var(--ytint);box-shadow:inset 3px 0 0 var(--y)}.rtab tr.cl td{color:var(--tx2)}
+.rtab tfoot td{font-weight:900;border-top:2px solid var(--line);border-bottom:0}
+.pcsum{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.pcs{border:1px solid var(--line);border-radius:12px;padding:8px 12px;display:flex;flex-direction:column;min-width:150px}
+.pcs small{font-size:10.5px;font-weight:800;text-transform:uppercase;color:var(--tx3)}.pcs b.num{font-size:16px;font-weight:900}.pcs span{font-size:11px;color:var(--tx3)}.pcs span b{color:var(--tx)}
+.pcs.tot{background:#111;border-color:#111}.pcs.tot small{color:var(--y)}.pcs.tot b.num{color:#fff}.pcs.tot span{color:#aaa}.pcs.tot span b{color:var(--y)}
+.pbadge{background:var(--ytint);color:var(--y3);font-weight:800;border-radius:6px;padding:1px 7px;font-size:11px}
+/* compacto */
+.hcards{gap:10px;margin-bottom:10px}.hc{padding:10px 14px;gap:2px;border-radius:14px}.hc-v{font-size:21px;margin-top:2px}.hc-p{margin-bottom:3px}.hc-row{padding:3px 0}.hc-f{padding-top:3px}
+.sechead{margin:2px 2px 6px}
+.kpis{margin-bottom:10px}.kpi{padding:8px 12px}
+.gcards{gap:6px;margin-bottom:8px}.gcard{padding:6px 10px 7px 12px}
+.donut-wrap{gap:14px}
+.catbars{max-height:320px;overflow:auto;gap:5px}
+@media(max-width:1300px){.toprow{flex-direction:column}.pcards{grid-template-columns:repeat(5,1fr)}}
+@media(max-width:700px){.pcards{grid-template-columns:repeat(3,1fr)}.pcard{padding:8px}.pcard small{display:none}}
 .donut-wrap{display:flex;gap:16px;align-items:center}
 .legend{display:grid;gap:8px;flex:1}
 .lg{display:flex;align-items:center;gap:8px;font-size:12.5px}
@@ -449,7 +483,7 @@ body.locked #copyPrev{display:none}
 .mk2 span{font-size:11px;color:var(--tx3)}
 .mk2 .bar{height:4px;margin-top:4px}
 @media(max-width:700px){.mk2{grid-template-columns:1fr 1fr}}
-.tplrow{display:grid;grid-template-columns:minmax(0,1fr) 70px 110px 100px 32px;gap:8px;align-items:center;padding:4px 6px;border-radius:9px}
+.tplrow{display:grid;grid-template-columns:minmax(0,1fr) 70px 120px 32px;gap:8px;align-items:center;padding:4px 6px;border-radius:9px}
 .tplrow:hover{background:var(--card2)}
 .tplrow input{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--card);color:var(--tx);border-radius:8px;padding:6px 8px;outline:none;min-width:0}
 .tplrow input:focus{border-color:var(--yd);box-shadow:0 0 0 3px var(--ytint)}
@@ -607,7 +641,7 @@ body.locked .more{display:none}
   <div class="top">
     <div class="brand">
       <div class="logo">R$</div>
-      <div class="bt"><h1>Controle Financeiro <small class="ver" title="Versão do app">v38</small></h1><p id="srcInfo">Previsto × Realizado</p></div>
+      <div class="bt"><h1>Controle Financeiro <small class="ver" title="Versão do app">v39</small></h1><p id="srcInfo">Previsto × Realizado</p></div>
     </div>
   <div class="monthbar" id="mbar">
     <button class="navbtn" id="prev">‹</button>
@@ -654,6 +688,18 @@ body.locked .more{display:none}
   <div class="sechead"><h2><span class="sh-ic">⇅</span>Entradas e saídas</h2><small>realizado × previsto · clique para ver os itens</small></div>
   <div class="kpis" id="kpis"></div>
 
+  <div class="sechead"><h2><span class="sh-ic">💳</span>Cartões e painéis</h2><small>clique no cartão para abrir a fatura</small><button class="mini" id="txCfg" title="Cadastrar, renomear, apagar e configurar cartões">⚙ Configurar cartões</button></div>
+  <div class="toprow">
+    <div class="ctiles top" id="cardTabs"></div>
+    <div class="pcards">
+      <div class="card pcard" data-p="parc"><span class="pc-ic">🧾</span><b>Parcelados</b><small>parcelas restantes</small></div>
+      <div class="card pcard" data-p="rec"><span class="pc-ic">🔁</span><b>Recorrentes</b><small>assinaturas</small></div>
+      <div class="card pcard" data-p="graf"><span class="pc-ic">📊</span><b>Gráficos</b><small>categorias no ano</small></div>
+      <div class="card pcard" data-p="evo"><span class="pc-ic">📈</span><b>Evolução</b><small>entradas × despesas</small></div>
+      <div class="card pcard" data-p="res"><span class="pc-ic">📋</span><b>Resumo</b><small>previsto mês a mês</small></div>
+    </div>
+  </div>
+
   <div class="grid2">
     <div class="card">
       <h3 id="detTitle">Detalhamento</h3>
@@ -664,25 +710,10 @@ body.locked .more{display:none}
     </div>
     <div class="card">
       <h3>🧭 Composição das despesas <span class="pill" id="compMode">realizado</span></h3>
-      <div class="donut-wrap"><svg id="donut" width="170" height="170" viewBox="0 0 170 170"></svg><div class="legend" id="legend"></div></div>
-      <h3 style="margin-top:18px">🏷️ Custos por categoria <span class="pill" id="catMode"></span></h3>
+      <div class="donut-wrap"><svg id="donut" width="130" height="130" viewBox="0 0 170 170"></svg><div class="legend" id="legend"></div></div>
+      <h3 style="margin-top:10px">🏷️ Custos por categoria <span class="pill" id="catMode"></span></h3>
       <div class="catbars" id="catBars"></div>
-      <h3 style="margin-top:18px">💳 Cartões do mês <button class="mini" id="txCfg" style="margin-left:auto" title="Cadastrar, renomear, apagar e configurar cartões">⚙ Configurar cartões</button></h3>
-      <div class="ctiles" id="cardTabs"></div>
-      <h3 style="margin-top:12px">Lançamentos <span class="pill" id="txCount"></span></h3>
-      <input class="search" id="txSearch" placeholder="Buscar lançamento…">
-      <div class="items" id="txList" style="max-height:260px"></div>
-    </div>
-  </div>
-
-  <div class="card chart-card">
-    <h3>📈 Evolução <span class="pill" id="chartYear"></span></h3>
-    <svg class="chart" id="chart" preserveAspectRatio="none"></svg>
-    <div class="legend" style="grid-auto-flow:column;justify-content:start;gap:18px;margin-top:6px">
-      <div class="lg"><i style="background:var(--k)"></i><span>Entradas (realizado)</span></div>
-      <div class="lg"><i style="background:var(--y)"></i><span>Despesas (realizado)</span></div>
-      <div class="lg"><i style="background:var(--tx3);opacity:.35"></i><span>Previsto</span></div>
-      <div class="lg"><i style="background:var(--yd);border-radius:99px"></i><span>Resultado</span></div>
+      <div hidden><span id="txCount"></span><input id="txSearch"><div id="txList"></div></div>
     </div>
   </div>
 
@@ -744,7 +775,7 @@ body.locked .more{display:none}
     <div class="mhead"><div class="cardico"></div><div><h2>Previsões fixas</h2><p id="cfgSub"></p></div><button class="close" data-close="ovCfg">✕</button></div>
     <div class="mbody">
       <p class="hint" style="margin:0 0 10px">Despesas que se repetem todo mês neste cartão (mercado, combustível, assinaturas…). Elas entram como <b>PREVISÃO</b> ao <b>copiar a fatura anterior</b> e nos meses gerados automaticamente, e são baixadas quando a compra real é lançada ou importada.</p>
-      <div class="tplrow" style="font-size:10.5px;font-weight:800;color:var(--tx3);text-transform:uppercase"><span>Descrição</span><span class="r">Qtd/mês</span><span class="r">Valor</span><span>Responsável</span><span></span></div>
+      <div class="tplrow" style="font-size:10.5px;font-weight:800;color:var(--tx3);text-transform:uppercase"><span>Descrição</span><span class="r">Qtd/mês</span><span class="r">Valor</span><span></span></div>
       <div id="cfgList" class="tlist" style="max-height:40vh"></div>
       <button class="addrow" id="cfgAdd">＋ Previsão fixa</button>
       <div class="mfoot"><span class="note" id="cfgTot"></span>
@@ -817,6 +848,21 @@ body.locked .more{display:none}
     <div class="mbody"><p id="askM" style="font-size:13px;color:var(--tx2);line-height:1.5;margin:0 0 14px;white-space:pre-line"></p><div id="askB" style="display:grid;gap:8px"></div></div>
   </div>
 </div>
+<div class="ov" id="ovEvo" style="z-index:40"><div class="modal" style="width:min(1200px,100%)">
+  <div class="mhead"><div class="logo" style="width:40px;height:40px;font-size:18px">📈</div><div><h2>Evolução</h2><p id="chartYear"></p></div><button class="close" data-close="ovEvo">✕</button></div>
+  <div class="mbody"><svg class="chart" id="chart" preserveAspectRatio="none"></svg>
+    <div class="legend" style="grid-auto-flow:column;justify-content:start;gap:18px;margin-top:6px">
+      <div class="lg"><i style="background:var(--k)"></i><span>Entradas (realizado)</span></div><div class="lg"><i style="background:var(--y)"></i><span>Despesas (realizado)</span></div>
+      <div class="lg"><i style="background:var(--tx3);opacity:.35"></i><span>Previsto</span></div><div class="lg"><i style="background:var(--yd);border-radius:99px"></i><span>Resultado</span></div></div></div></div></div>
+<div class="ov" id="ovGraf" style="z-index:40"><div class="modal" style="width:min(1200px,100%)">
+  <div class="mhead"><div class="logo" style="width:40px;height:40px;font-size:18px">📊</div><div><h2>Despesas por categoria</h2><p id="grafSub"></p></div><button class="close" data-close="ovGraf">✕</button></div>
+  <div class="mbody"><div class="yrchips" id="grafYrs"></div><svg id="grafSvg" style="width:100%;height:300px" preserveAspectRatio="none"></svg><div class="glegend" id="grafLeg"></div></div></div></div>
+<div class="ov" id="ovRes" style="z-index:40"><div class="modal" style="width:min(1300px,100%)">
+  <div class="mhead"><div class="logo" style="width:40px;height:40px;font-size:18px">📋</div><div><h2>Resumo ao longo do tempo</h2><p>valores previstos · realizado quando houver · clique na linha para abrir o mês</p></div><button class="close" data-close="ovRes">✕</button></div>
+  <div class="mbody"><div class="yrchips" id="resYrs"></div><div class="rtwrap" id="resTbl"></div></div></div></div>
+<div class="ov" id="ovParc" style="z-index:40"><div class="modal" style="width:min(1100px,100%)">
+  <div class="mhead"><div class="logo" style="width:40px;height:40px;font-size:18px">🧾</div><div><h2 id="parcH">Compras parceladas</h2><p id="parcSub"></p></div><button class="close" data-close="ovParc">✕</button></div>
+  <div class="mbody"><div class="pcsum" id="parcSum"></div><div class="rtwrap" id="parcTbl"></div></div></div></div>
 <div class="catpop" id="catPop"><input id="cpQ" placeholder="Buscar ou criar categoria…" autocomplete="off"><div id="cpL"></div><div class="cpf"><button id="cpClr">✕ Sem categoria</button><button id="cpCfg">⚙ Gerenciar</button></div></div>
 <div class="ov" id="ovCats" style="z-index:57">
   <div class="modal" style="width:min(520px,100%)">
@@ -1693,7 +1739,7 @@ function openCfg(){
   $('cfgSub').textContent=FCARD; const inFat=$('ov').classList.contains('on'); $('cfgFrom').style.display=$('cfgApply').style.display=inFat?'':'none'; renderCfg(); openOv('ovCfg');
 }
 function renderCfg(){
-  $('cfgList').innerHTML = CFGL.length ? CFGL.map((x,i)=>`<div class="tplrow" data-i="${i}"><input data-f="d" value="${esc(x.d)}" placeholder="Descrição"><input class="r num" data-f="q" type="number" min="1" max="31" value="${x.q||1}" title="Quantas vezes por mês"><input class="r num" data-f="v" inputmode="decimal" value="${fmtIn(x.v)}" placeholder="0,00"><input data-f="who" value="${esc(x.who||'')}" placeholder="ZE"><button class="del" title="Remover">🗑</button></div>`).join('')
+  $('cfgList').innerHTML = CFGL.length ? CFGL.map((x,i)=>`<div class="tplrow" data-i="${i}"><input data-f="d" value="${esc(x.d)}" placeholder="Descrição"><input class="r num" data-f="q" type="number" min="1" max="31" value="${x.q||1}" title="Quantas vezes por mês"><input class="r num" data-f="v" inputmode="decimal" value="${fmtIn(x.v)}" placeholder="0,00"><button class="del" title="Remover">🗑</button></div>`).join('')
     : '<div class="empty">Nenhuma previsão fixa. Clique em “＋ Previsão fixa” ou em “Usar previsões desta fatura”.</div>';
   const nq=CFGL.reduce((s,x)=>s+(x.q||1),0); $('cfgTot').textContent = CFGL.length ? `${nq} previsão(ões) por mês · total ${fmt(CFGL.reduce((s,x)=>s+n0(x.v)*(x.q||1),0))}/mês` : '';
 }
@@ -1899,7 +1945,7 @@ function renderTx(){
       ${lim?`<div class="bar" title="Uso do limite: ${fmt(tot)} de ${fmt(lim)}"><i style="width:${Math.min(100,tot/lim*100)}%;background:${tot>lim?'var(--red)':'var(--cc)'}"></i></div>`:''}
       <button class="ct-open" data-open="${esc(n)}" title="Abrir fatura">fatura ›</button></div>`; };
   $('cardTabs').innerHTML = `<div class="ctile all ${cardSel==='TODOS'?'on':''}" data-c="TODOS"><div class="ct-top"><b class="ct-n">Todos os cartões</b></div><div class="ct-v num">${fmt(allTot)}</div><div class="ct-s"><span>${m.tx.length} lanç. · ${names.length} cartões</span></div></div>` + names.map(tile).join('');
-  $('cardTabs').querySelectorAll('.ctile').forEach(el=>el.onclick=e=>{ if(e.target.closest('.ct-open')) return; cardSel=el.dataset.c; renderTx(); });
+  $('cardTabs').querySelectorAll('.ctile').forEach(el=>el.onclick=e=>{ if(e.target.closest('.ct-open')) return; if(el.dataset.c!=='TODOS') openFatura(el.dataset.c); });
   $('cardTabs').querySelectorAll('.ct-open').forEach(b=>b.onclick=()=>openFatura(b.dataset.open));
   const q=norm($('txSearch').value);
   const list=m.tx.filter(t=>(cardSel==='TODOS'||t.card===cardSel)&&(!q||norm(t.d).includes(q))).sort((a,b)=>(b.est-a.est)||(b.v-a.v));
@@ -1912,10 +1958,60 @@ function renderTx(){
     :'<div class="empty">Nenhum lançamento de cartão</div>';
 }
 
+let PYR=null;
+const yrChips=(id,fn)=>{ const ys=[...new Set(DATA.map(d=>d.y))]; const y=PYR||DATA[cur].y; $(id).innerHTML=ys.map(v=>`<button class="${v===y?'on':''}" data-y="${v}">${v}</button>`).join(''); $(id).querySelectorAll('button').forEach(b=>b.onclick=()=>{ PYR=+b.dataset.y; fn(); }); return y; };
+function monthCats(m){ const G={}; const add=(c,v)=>{ if(!v) return; const k=String(c||'').trim().toUpperCase(); G[k]=(G[k]||0)+v; };
+  const useF=['fixas','variaveis'].some(s=>m.sec[s].some(it=>n0(it.f)));
+  for(const sec of ['fixas','variaveis']) for(const it of m.sec[sec]) add(it.cat, useF?n0(it.f):n0(it.e));
+  for(const t of m.tx) add(t.cat,n0(t.v)); return G; }
+function renderGraf(){ const y=yrChips('grafYrs',renderGraf); const ms=DATA.filter(d=>d.y===y);
+  const per=ms.map(m=>monthCats(m)), tot={}; per.forEach(G=>Object.entries(G).forEach(([k,v])=>tot[k]=(tot[k]||0)+v));
+  const top=Object.keys(tot).filter(k=>k).sort((a,b)=>tot[b]-tot[a]).slice(0,9);
+  const keys=[...top,'__o',''].filter(k=>k==='__o'?Object.keys(tot).some(x=>x&&!top.includes(x)):k===''?tot['']:true);
+  const COL=['#ca8a04','#111111','#2563eb','#db2777','#059669','#7c3aed','#0891b2','#ea580c','#65a30d','#a16207','#cbd5e1'];
+  const val=(G,k)=>k==='__o'?Object.entries(G).filter(([x])=>x&&!top.includes(x)).reduce((s,[,v])=>s+v,0):(G[k]||0);
+  const svg=$('grafSvg'), W=svg.clientWidth||1100, H=300, pl=50, pb=24, pt=10; svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+  const sums=per.map(G=>keys.reduce((s,k)=>s+val(G,k),0)), max=Math.max(1,...sums), slot=(W-pl-10)/Math.max(12,ms.length), bw=Math.min(46,slot*.62);
+  const yy=v=>pt+(H-pt-pb)*(1-v/max); let g='';
+  for(let i=0;i<=4;i++){ const v=max*i/4; g+=`<line x1="${pl}" x2="${W-10}" y1="${yy(v)}" y2="${yy(v)}" stroke="var(--line)"/><text x="${pl-6}" y="${yy(v)+4}" text-anchor="end" style="font-size:10px;fill:var(--tx3)">${fmtK(v)}</text>`; }
+  ms.forEach((m,i)=>{ let acc=0; const x=pl+slot*i+(slot-bw)/2;
+    keys.forEach((k,j)=>{ const v=val(per[i],k); if(!v) return; const y1=yy(acc+v), y0=yy(acc); g+=`<rect x="${x}" y="${y1}" width="${bw}" height="${Math.max(0,y0-y1)}" fill="${k===''?COL[10]:COL[j%10]}"><title>${MES[m.m]}/${m.y} · ${k==='__o'?'Outras':k||'Sem categoria'}: ${fmt(v)}</title></rect>`; acc+=v; });
+    g+=`<text x="${x+bw/2}" y="${H-8}" text-anchor="middle" style="font-size:10.5px;fill:var(--tx2);font-weight:${m===DATA[cur]?800:500}">${MES[m.m]}</text>`; });
+  svg.innerHTML=g; $('grafSub').textContent=`${y} · previsto (ou realizado) de fixas e variáveis + lançamentos das faturas`;
+  $('grafLeg').innerHTML=keys.map((k,j)=>`<span><i style="background:${k===''?COL[10]:COL[j%10]}"></i>${k==='__o'?'Outras':k?catIcon(k)+' '+esc(k):'Sem categoria'} <b class="num">${fmt(k==='__o'?Object.entries(tot).filter(([x])=>x&&!top.includes(x)).reduce((s,[,v])=>s+v,0):tot[k]||0)}</b></span>`).join(''); }
+function renderRes(){ const y=yrChips('resYrs',renderRes); const ms=DATA.filter(d=>d.y===y);
+  const c=(v,cls='')=>`<td class="num ${cls} ${n0(v)<0?'neg':''}">${v==null||v===''?'—':fmt(v)}</td>`;
+  const T={ent:0,des:0,re:0,rf:0,ap:0};
+  const rows=ms.map(m=>{ const S=m.sum, ap=n0(m.aportes)-n0(m.retiradas); T.ent+=n0(S.entradas.e); T.des+=n0(S.despesas.e); T.re+=n0(S.resultado.e); T.rf+=n0(S.resultado.f); T.ap+=ap;
+    return `<tr class="${m===DATA[cur]?'cur':''} ${m.closed?'cl':''}" data-k="${m.key}"><td><b>${MES[m.m]}/${m.y}</b>${m.closed?' <small>🔒</small>':''}</td>${c(S.entradas.e)}${c(S.despesas.e)}${c(S.cartoes.e)}${c(S.resultado.e,'b')}${c(n0(S.resultado.f)||null)}${c(ap||null)}${c(S.resultadoInv?.e)}${c(S.saldoAtual?.e)}${c(S.invest?.e)}${c(S.saldoTotal?.e,'b')}</tr>`; }).join('');
+  $('resTbl').innerHTML=`<table class="rtab"><thead><tr><th>Mês</th><th>Entradas</th><th>Despesas</th><th>Cartões</th><th>Resultado prev.</th><th>Resultado real</th><th>Aporte</th><th>Após aporte</th><th>Conta corrente</th><th>Investimentos</th><th>Patrimônio</th></tr></thead><tbody>${rows}</tbody>
+    <tfoot><tr><td>Total ${y}</td>${c(T.ent)}${c(T.des)}<td></td>${c(T.re,'b')}${c(T.rf||null)}${c(T.ap||null)}<td></td><td></td><td></td><td></td></tr></tfoot></table>`;
+  $('resTbl').querySelectorAll('tbody tr').forEach(tr=>tr.onclick=()=>{ const i=DATA.findIndex(d=>d.key===tr.dataset.k); if(i>=0){ cur=i; closeOv('ovRes'); render(); } }); }
+let PMODE='parc';
+function renderRec(){ const m=DATA[cur]; const L=m.tx.filter(t=>t.rec&&!t.est).map(t=>({d:splitP(t.d).d,card:t.card,v:n0(t.v),cat:t.cat})).sort((a,b)=>b.v-a.v);
+  const byC={}; L.forEach(x=>{ const c=byC[x.card]=byC[x.card]||{n:0,v:0}; c.n++; c.v+=x.v; }); const tv=L.reduce((s,x)=>s+x.v,0);
+  $('parcH').textContent='Compras recorrentes'; $('parcSub').textContent=`${MES[m.m]}/${m.y} · ${L.length} assinatura(s) em ${Object.keys(byC).length} cartão(ões)`;
+  $('parcSum').innerHTML=`<div class="pcs tot"><small>Total por mês</small><b class="num">${fmt(tv)}</b><span>por ano <b>${fmt(tv*12)}</b></span></div>`+Object.entries(byC).sort((a,b)=>b[1].v-a[1].v).map(([k,c])=>`<div class="pcs"><small>${esc(k)}</small><b class="num">${fmt(c.v)}</b><span>${c.n} assinatura(s) · ano <b>${fmt(c.v*12)}</b></span></div>`).join('');
+  $('parcTbl').innerHTML=L.length?`<table class="rtab"><thead><tr><th>Assinatura</th><th>Cartão</th><th>Categoria</th><th>Por mês</th><th>Por ano</th></tr></thead><tbody>${L.map(x=>`<tr><td><b>${esc(x.d)}</b></td><td><small>${esc(x.card)}</small></td><td>${x.cat?catIcon(x.cat)+' '+esc(x.cat):'<small>—</small>'}</td><td class="num">${fmt(x.v)}</td><td class="num b">${fmt(x.v*12)}</td></tr>`).join('')}</tbody>
+    <tfoot><tr><td colspan="3">Total</td><td class="num">${fmt(tv)}</td><td class="num b">${fmt(tv*12)}</td></tr></tfoot></table>`:'<div class="empty">Nenhuma compra recorrente neste mês</div>'; }
+function renderParc(){ if(PMODE==='rec') return renderRec(); $('parcH').textContent='Compras parceladas'; const m=DATA[cur]; const L=[];
+  for(const t of m.tx){ const sp=splitP(t.d); if(!sp.p||t.est) continue; const [a,n]=sp.p.split('/').map(Number); if(!(n>0)) continue;
+    const rest=Math.max(0,n-a); const end=new Date(m.y,m.m+rest,1); L.push({d:sp.d,card:t.card,a,n,v:n0(t.v),rest,rv:r2(n0(t.v)*rest),end:`${MES[end.getMonth()]}/${end.getFullYear()}`,cat:t.cat}); }
+  L.sort((x,y)=>y.rv-x.rv||y.v-x.v);
+  const byC={}; L.forEach(x=>{ const c=byC[x.card]=byC[x.card]||{n:0,v:0,rv:0}; c.n++; c.v+=x.v; c.rv+=x.rv; });
+  const tv=L.reduce((s,x)=>s+x.v,0), trv=L.reduce((s,x)=>s+x.rv,0);
+  $('parcSub').textContent=`${MES[m.m]}/${m.y} · ${L.length} compra(s) parcelada(s) em ${Object.keys(byC).length} cartão(ões)`;
+  $('parcSum').innerHTML=`<div class="pcs tot"><small>Total</small><b class="num">${fmt(tv)}</b><span>nesta fatura · faltam <b>${fmt(trv)}</b></span></div>`+Object.entries(byC).sort((a,b)=>b[1].rv-a[1].rv).map(([k,c])=>`<div class="pcs"><small>${esc(k)}</small><b class="num">${fmt(c.v)}</b><span>${c.n} compra(s) · faltam <b>${fmt(c.rv)}</b></span></div>`).join('');
+  $('parcTbl').innerHTML=L.length?`<table class="rtab"><thead><tr><th>Compra</th><th>Cartão</th><th>Parcela</th><th>Valor</th><th>Restam</th><th>Total restante</th><th>Termina</th></tr></thead><tbody>${L.map(x=>`<tr><td>${x.cat?catIcon(x.cat)+' ':''}<b>${esc(x.d)}</b></td><td><small>${esc(x.card)}</small></td><td><span class="pbadge">${x.a}/${x.n}</span></td><td class="num">${fmt(x.v)}</td><td class="num">${x.rest?x.rest+'×':'<small>última</small>'}</td><td class="num b">${x.rest?fmt(x.rv):'—'}</td><td>${x.end}</td></tr>`).join('')}</tbody>
+    <tfoot><tr><td colspan="3">Total</td><td class="num">${fmt(tv)}</td><td></td><td class="num b">${fmt(trv)}</td><td></td></tr></tfoot></table>`:'<div class="empty">Nenhuma compra parcelada neste mês</div>'; }
+const PANEL={ovGraf:renderGraf,ovRes:renderRes,ovParc:renderParc};
+document.querySelectorAll('.pcard').forEach(el=>el.onclick=()=>{ const p=el.dataset.p; PYR=null;
+  if(p==='evo'){ openOv('ovEvo'); setTimeout(renderChart,30); }
+  else { if(p==='parc'||p==='rec') PMODE=p; const id={graf:'ovGraf',res:'ovRes',parc:'ovParc',rec:'ovParc'}[p]; openOv(id); setTimeout(PANEL[id],30); } });
 function renderChart(){
   if(!DATA.length) return;
   const m=DATA[cur]; const ms=DATA.filter(d=>d.y===m.y);
-  $('chartYear').textContent=m.y;
+  $('chartYear').textContent='Entradas, despesas e resultado · '+m.y;
   const svg=$('chart'), W=svg.clientWidth||1000, H=240, pl=44, pr=10, pt=14, pb=26;
   svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
   const vals=ms.flatMap(d=>[n0(d.sum.entradas.e),n0(d.sum.entradas.f),n0(d.sum.despesas.e),n0(d.sum.despesas.f)]);
@@ -2797,7 +2893,7 @@ $('fImp').onclick=()=>openImport(FCARD,DATA[cur].key);
 function render(){
   const empty=!DATA.length; $('main').style.display=empty?'none':''; $('mbar').style.display=empty?'none':''; $('welcome').style.display=empty?'':'none';
   if(empty){ $('srcInfo').textContent='sem dados'; return; }
-  renderNav(); renderHero(); renderKpis(); renderDetail(); renderDonut(); renderTx(); renderChart(); applyLock(); try{ paintBadge(); }catch(e){}
+  renderNav(); renderHero(); renderKpis(); renderDetail(); renderDonut(); renderTx(); if($('ovEvo').classList.contains('on')) renderChart(); ['ovGraf','ovRes','ovParc'].forEach(id=>{ if($(id).classList.contains('on')) PANEL[id](); }); applyLock(); try{ paintBadge(); }catch(e){}
   const ne=Object.keys(EDITS).length+Object.keys(TXED).length;
   paintSync();
   $('foot').innerHTML=`Fonte: ${INFO}`;
@@ -2810,7 +2906,7 @@ $('next').onclick=()=>{ if(cur<DATA.length-1){cur++;render();} };
 document.addEventListener('keydown',e=>{ if(e.target.tagName==='INPUT'||e.target.tagName==='SELECT'||document.querySelector('.ov.on'))return; if(e.key==='ArrowLeft')$('prev').click(); if(e.key==='ArrowRight')$('next').click(); });
 $('txSearch').oninput=renderTx;
 $('addYearBtn').onclick=addYear;
-window.addEventListener('resize',()=>renderChart());
+window.addEventListener('resize',()=>{ if($('ovEvo').classList.contains('on')) renderChart(); });
 $('themeBtn').onclick=()=>{ document.body.classList.toggle('dark'); try{localStorage.setItem('cf_theme2',document.body.classList.contains('dark')?'d':'l');}catch(e){} renderChart(); };
 try{ if(localStorage.getItem('cf_theme2')==='d') document.body.classList.add('dark'); }catch(e){}
 
